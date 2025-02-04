@@ -36,6 +36,7 @@ fun initColorMode(ctx: InitSilkContext) {
 @App
 @Composable
 fun AppEntry(content: @Composable () -> Unit) {
+    println("welcome")
     LaunchedEffect(Unit) {
         initFirebase()
     }
