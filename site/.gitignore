@@ -1,0 +1,7 @@
+# Kobweb ignores
+.kobweb/*
+!.kobweb/conf.yaml
+!.kobweb/site
+build
+build/
+/build

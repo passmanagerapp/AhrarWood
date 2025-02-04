@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Header -->
+    <string name="home">Heim</string>
+    <string name="about">Um</string>
+    <string name="contact">Kontakt</string>
+    <string name="book_stand">Bücherständer</string>
+    <string name="search">Suchen</string>
+    <string name="create_library">Bibliothek erstellen</string>
+
+    <!-- Footer -->
+    <string name="footer_author">Copyright 2025 dev0029</string>
+
+    <!-- Section -->
+    <string name="section1_title">Verpackung für besondere Tage</string>
+    <string name="section1_button">Mehr Infos</string>
+    <string name="section1_desc">Für besondere Tage wie Muttertag, Weihnachten oder Valentinstag verpacken wir Ihre Bestellungen sorgfältig.</string>
+
+    <string name="section2_title">Buchständer fürs Bett</string>
+    <string name="section2_button">Jetzt bestellen</string>
+    <string name="section2_desc">Suchen Sie nach einem Buchhalter, während Sie im Bett Ihr Lieblingsbuch lesen?</string>
+
+    <string name="section3_title">Erstelle eine Miniaturbibliothek</string>
+    <string name="section3_button">Jetzt erstellen</string>
+    <string name="section3_desc">Was sind deine Lieblingsbücher? Erstelle eine Sammlung deiner Lieblingsbücher und lass uns deine Miniaturbibliothek produzieren!</string>
+
+    <!-- Shipping -->
+    <string name="shipping_title">Versand</string>
+    <string name="shipping_desc1">Schneller und kostenloser Versand</string>
+    <string name="shipping_description">Mit unserem Expressversand erreichen Ihre Artikel Ihre Haustür innerhalb von 1-3 Werktagen. Wir versenden in ganz Deutschland.</string>
+    <string name="shipping_description2">Darüber hinaus versenden wir in die USA, nach Kanada, Großbritannien und in alle EU-Länder und sorgen so für ein reibungsloses Einkaufserlebnis für alle unsere Kunden.</string>
+
+    <!-- Contact -->
+    <string name="contact_title">Kontaktieren Sie uns</string>
+    <string name="contact_email_name">Ihr Name</string>
+    <string name="contact_email_subject">Thema</string>
+    <string name="contact_email_message">Nachricht</string>
+    <string name="contact_email_send_message">Nachricht senden</string>
+
+    <!-- Create library -->
+    <string name="library_header_title">Erstellen Sie Ihre Bibliothek</string>
+    <string name="library_header_title2">Ihre Buchliste wurde erstellt, jetzt ist es Zeit, zu bestellen!</string>
+    <string name="library_header_desc">*Die Reihenfolge der Bücher ist nicht wichtig</string>
+    <string name="library_header_desc2">Klicken Sie auf die Schaltfläche "Bestellen" und fügen Sie Ihre eindeutige ID im Abschnitt "Personalisierung" bei Etsy ein.</string>
+    <string name="copy_your_id">Kopieren Sie Ihre eindeutige Buchlisten-ID:</string>
+    <string name="download_book_list">Buchliste herunterladen</string>
+    <string name="ok">Ok</string>
+    <string name="remove">Entfernen</string>
+    <string name="search_author">Autor suchen</string>
+    <string name="result_found">Ergebnis gefunden</string>
+    <string name="loading">Laden:</string>
+    <string name="not_loaded">Modell nicht geladen</string>
+</resources>

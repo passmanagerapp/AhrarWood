@@ -1,0 +1,16 @@
+site:
+  title: "AhrarWood | Handmade Book stands, Gift for book readers, Gift for book lovers"
+  description: "AhrarWood is a book stand producer company that has shipping service to USA, Canada, EU countries, UK. Gift for readers, book lover gift, book stands, book holder, gift for book lovers, book house, nightstand book holder"
+  author: "@dev0029"
+
+server:
+  files:
+    dev:
+      contentRoot: "build/processedResources/js/main/public"
+      script: "build/kotlin-webpack/js/developmentExecutable/ahrarwood.js"
+      api: "build/libs/ahrarwood.jar"
+    prod:
+      script: "build/kotlin-webpack/js/productionExecutable/ahrarwood.js"
+      siteRoot: ".kobweb/site"
+
+  port: 8080
