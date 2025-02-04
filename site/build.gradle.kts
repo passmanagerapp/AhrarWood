@@ -22,7 +22,7 @@ kobweb {
             description.set("AhrarWood is a book stand producer company that has shipping service to USA, Canada, EU countries, UK. Gift for readers, book lover gift, book stands, book holder, gift for book lovers, book house, nightstand book holder")
             head.add {
                 link(rel = "stylesheet", href = "/fonts/faces.css")
-                meta(name = "google-site-verification", content = "JzYhq_J3Dm6Fm9CrSeD0xCmuk0ZSU6kB2GvyuIBPHNI")
+                meta(name = "google-site-verification", content = "C2Tcjt62R93UJNFmUqeOaU9GtIaZvjDYRCHfqJOY3i8")
             }
         }
     }
