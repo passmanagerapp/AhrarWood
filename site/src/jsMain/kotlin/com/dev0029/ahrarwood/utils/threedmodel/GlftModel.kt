@@ -9,6 +9,36 @@ import kotlin.math.sin
 
 fun setupGlftModel(containerId: String,onModelClick:(id:String) -> Unit) : Scene {
     val scene = Scene()
+    val loadingDiv = document.createElement("div")
+    loadingDiv.id = "loading-${containerId}"
+    loadingDiv.apply {
+        setAttribute("style", """
+            position: absolute;
+            width: 20%;
+            height: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: #3498db;
+            font-weight: bold;
+        """.trimIndent())
+    }
+    loadingDiv.textContent = "${Res.string.loading} %0"
+
+    val container = document.getElementById(containerId)
+    container?.appendChild(loadingDiv)
+
+    val cleanupHandler = {
+        document.getElementById(loadingDiv.id)?.let { div ->
+            div.parentElement?.removeChild(div)
+        }
+    }
+
+    window.onbeforeunload = {
+        cleanupHandler()
+        null
+    }
 
     // Camera setup
     val camera = PerspectiveCamera(75.0, 720.0 / 460, 0.1, 1000.0)
@@ -40,13 +70,12 @@ fun setupGlftModel(containerId: String,onModelClick:(id:String) -> Unit) : Scene
         preserveDrawingBuffer = true
     }
     val renderer = WebGLRenderer(options = rendererOptions)
-    renderer.setClearColor(0xffffff)
+    renderer.setClearColor(0xffffff,0.0)
     renderer.setSize(720, 460)
     renderer.outputEncoding = 3001
     renderer.setPixelRatio(window.devicePixelRatio)
     renderer.toneMapping = 5
     renderer.toneMappingExposure = 1.0
-    val container = document.getElementById(containerId)
     container?.appendChild(renderer.domElement)
 
     val controls = OrbitControls(camera, renderer.domElement)
@@ -78,6 +107,7 @@ fun setupGlftModel(containerId: String,onModelClick:(id:String) -> Unit) : Scene
     loader.load(
         "raw/bookshelf.glb",
         { obj ->
+            cleanupHandler()
             val box = Box3().setFromObject(obj.scene)
             val center = box.getCenter(Vector3())
             val size = box.getSize(Vector3())
@@ -95,10 +125,13 @@ fun setupGlftModel(containerId: String,onModelClick:(id:String) -> Unit) : Scene
             renderLoop(renderer, scene, camera,controls)
         },
         { progress ->
-            console.log("Loading model progress: ${progress.loaded}/${progress.total}")
+            var percentage = ((progress.loaded.toDouble() / progress.total.toDouble()) * 100).toInt()
+            if (percentage >= 100)
+                percentage = 100
+            loadingDiv.textContent = "${Res.string.loading} %$percentage"
         },
         { error ->
-            console.error("Error loading OBJ file: $error")
+            loadingDiv.textContent = "${Res.string.not_load} ${error.message}"
         }
     )
     return scene

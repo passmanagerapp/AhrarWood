@@ -5,3 +5,4 @@
 build
 build/
 /build
+/src/jsMain/kotlin/com/dev0029/ahrarwood/network/firebase

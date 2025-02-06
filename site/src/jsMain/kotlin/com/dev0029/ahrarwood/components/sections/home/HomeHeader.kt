@@ -218,7 +218,7 @@ fun SearchBar(
         ctx.router.navigateTo(it)
     })
     HomeSectionButton(modifier, Res.string.book_stands, PageRoutes.BOOK_STANDS, currentPath, onClick = {
-        //ctx.router.navigateTo(it)
+        ctx.router.navigateTo(it)
     })
     HomeSectionButton(modifier, Res.string.create_library, PageRoutes.CREATE_MINIATURE_LIBRARY, currentPath, onClick = {
         ctx.router.navigateTo(it)

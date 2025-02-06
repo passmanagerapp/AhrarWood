@@ -32,6 +32,7 @@
 
     <!-- Contact -->
     <string name="contact_title">Kontaktieren Sie uns</string>
+    <string name="contact_desc">Mailen Sie uns bei Fragen oder für eine Zusammenarbeit</string>
     <string name="contact_email_name">Ihr Name</string>
     <string name="contact_email_subject">Thema</string>
     <string name="contact_email_message">Nachricht</string>
@@ -50,4 +51,8 @@
     <string name="result_found">Ergebnis gefunden</string>
     <string name="loading">Laden:</string>
     <string name="not_loaded">Modell nicht geladen</string>
+
+    <!-- Book stands -->
+    <string name="book_stands_header_title">Bestseller-Buchständer</string>
+    <string name="book_stands_header_desc">Sehen Sie sich unseren Bestseller-Buchständer als 3D-Modell an</string>
 </resources>

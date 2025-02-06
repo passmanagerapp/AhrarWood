@@ -1,6 +1,7 @@
 package com.dev0029.ahrarwood.components.sections.home
 
 import androidx.compose.runtime.Composable
+import com.dev0029.ahrarwood.SitePalettes
 import com.dev0029.ahrarwood.components.widgets.AboutExternalIcon
 import com.dev0029.ahrarwood.constants.Constants
 import com.dev0029.ahrarwood.constants.ImagePaths
@@ -27,6 +28,7 @@ fun HomeFooter(
     val isDarkMode = ColorMode.current.isDark
     Box(
         modifier = modifier.fillMaxWidth()
+            .backgroundColor(if (isDarkMode) SitePalettes.dark.nearBackground else SitePalettes.light.nearBackground)
             .height(if (breakpoint >= Breakpoint.MD) 96.px else 56.px)
             .padding(leftRight = if (breakpoint >= Breakpoint.MD) 96.px else 16.px)
             ,

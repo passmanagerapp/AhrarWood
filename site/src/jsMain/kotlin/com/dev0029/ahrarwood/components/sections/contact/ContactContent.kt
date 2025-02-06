@@ -9,7 +9,10 @@ import com.dev0029.ahrarwood.components.sections.home.HomeHeader
 import com.dev0029.ahrarwood.constants.Constants
 import com.dev0029.ahrarwood.constants.PageRoutes
 import com.dev0029.ahrarwood.extensions.brownColor
+import com.dev0029.ahrarwood.extensions.isMobileCompatible
+import com.dev0029.ahrarwood.extensions.primaryColor
 import com.varabyte.kobweb.compose.css.Cursor
+import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.css.Transition
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -27,6 +30,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.cursor
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
+import com.varabyte.kobweb.compose.ui.modifiers.fontWeight
 import com.varabyte.kobweb.compose.ui.modifiers.height
 import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.padding
@@ -66,6 +70,28 @@ fun ContactContent(
         val message = remember { mutableStateOf("") }
 
         HomeHeader(PageRoutes.CONTACT,modifier)
+        // SubHeader
+        Box(
+            modifier = modifier
+                .fillMaxWidth()
+                .height(if (!breakpoint.isMobileCompatible()) 140.px else 120.px)
+                .padding(leftRight = if (!breakpoint.isMobileCompatible()) 96.px else 16.px)
+                .margin(top = 102.px)
+                .align(Alignment.TopCenter)
+                .backgroundColor(color = primaryColor),
+        ) {
+            SpanText(Res.string.contact_title, modifier = modifier
+                .fontSize(if (!breakpoint.isMobileCompatible()) 36.px else 16.px)
+                .fontWeight(FontWeight.Bold)
+                .color(Colors.White)
+                .align(if (!breakpoint.isMobileCompatible()) Alignment.CenterStart else Alignment.TopStart))
+            SpanText(Res.string.contact_desc,
+                modifier = modifier
+                    .fontSize(if (!breakpoint.isMobileCompatible()) 16.px else 12.px)
+                    .fontWeight(FontWeight.Thin).color(Colors.White)
+                    .align(if (!breakpoint.isMobileCompatible()) Alignment.BottomStart else Alignment.TopStart)
+                    .margin(bottom = 8.px, top = if (!breakpoint.isMobileCompatible()) 0.px else 20.px))
+        }
         Row(
             modifier =
             modifier

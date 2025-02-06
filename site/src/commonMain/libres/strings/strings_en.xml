@@ -33,6 +33,7 @@
 
     <!-- Contact -->
     <string name="contact_title">Contact us</string>
+    <string name="contact_desc">Mail us for any question, cooperation</string>
     <string name="contact_email_name">Your name</string>
     <string name="contact_email_subject">Subject</string>
     <string name="contact_email_message">Message</string>
@@ -51,4 +52,8 @@
     <string name="result_found">result found</string>
     <string name="loading">Loading:</string>
     <string name="not_load">Model not loaded</string>
+
+    <!-- Book stands -->
+    <string name="book_stands_header_title">Bestseller book stands</string>
+    <string name="book_stands_header_desc">Preview our bestseller book stand with 3d model</string>
 </resources>

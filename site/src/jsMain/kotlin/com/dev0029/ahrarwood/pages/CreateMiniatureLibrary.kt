@@ -1,6 +1,7 @@
 package com.dev0029.ahrarwood.pages
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -50,6 +51,7 @@ import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.forms.Button
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
+import kotlinx.browser.document
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.web.css.StyleSheet
 import org.jetbrains.compose.web.css.px
@@ -75,7 +77,13 @@ fun CreateMiniatureLibraryPage(
     var isDialogOpen = remember { mutableStateOf(BookDialogModel()) }
     var scene = remember { mutableStateOf<Scene?>(null) }
     val removedItemIdList = remember { mutableStateOf< List<String>>(emptyList()) }
-
+    DisposableEffect(Unit) {
+        onDispose {
+            document.getElementById("loading-three-container")?.let { loadingDiv ->
+                loadingDiv.parentElement?.removeChild(loadingDiv)
+            }
+        }
+    }
     Box(modifier = modifier.fillMaxSize()) {
         HomeHeader(PageRoutes.CREATE_MINIATURE_LIBRARY,modifier)
         Box(modifier = modifier

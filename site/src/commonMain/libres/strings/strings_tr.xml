@@ -33,6 +33,7 @@
 
     <!-- Contact -->
     <string name="contact_title">İletişime geçin</string>
+    <string name="contact_desc">Sorularınız için bize mail gönderin</string>
     <string name="contact_email_name">İsminiz</string>
     <string name="contact_email_subject">Konu</string>
     <string name="contact_email_message">Mesaj</string>
@@ -51,4 +52,8 @@
     <string name="result_found">sonuç bulundu</string>
     <string name="loading">Yükleniyor:</string>
     <string name="not_load">Model yüklenmedi</string>
+
+    <!-- Book stands -->
+    <string name="book_stands_header_title">En çok beğenilen kitap standları</string>
+    <string name="book_stands_header_desc">3d modellerimizi görüntüle</string>
 </resources>
