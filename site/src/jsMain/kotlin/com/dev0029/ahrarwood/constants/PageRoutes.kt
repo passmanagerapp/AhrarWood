@@ -8,4 +8,5 @@ object PageRoutes {
     const val PACKAGING = "/gift-wrapping-for-book-lovers"
     const val CREATE_MINIATURE_LIBRARY = "/create-miniature-library"
     const val CREATE_MINIATURE_LIBRARY_ORDER = "/create-miniature-library/order"
+    const val BOOK_STAND_TRIANGLE = "/book-stands-triangle"
 }

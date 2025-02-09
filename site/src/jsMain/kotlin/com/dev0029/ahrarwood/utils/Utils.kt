@@ -73,4 +73,16 @@ object Utils {
     fun blobToFile(blob: Blob, fileName: String): File {
         return File(arrayOf(blob), fileName, FilePropertyBag(type = "application/pdf"))
     }
+
+    fun splitSentenceInHalf(sentence: String): String {
+        val words = sentence.split(" ")
+        if (words.size < 4) return sentence
+
+        val midIndex = words.size / 2
+        val firstPart = words.take(midIndex).joinToString(" ")
+        val secondPart = words.drop(midIndex).joinToString(" ")
+
+        return "$firstPart\n$secondPart"
+    }
+
 }

@@ -47,6 +47,7 @@ fun SearchView(
     onSubmit: (search:String) -> Unit,
     searchResults: List<Doc> = emptyList(),
     onResultClick: (Doc) -> Unit = {},
+    placeHolder: String = Res.string.search_author,
     currentPage: Int = 1,
     totalPages: Int = 1,
     onPageChange: (Int) -> Unit = {}
@@ -94,7 +95,7 @@ fun SearchView(
                         .color(Colors.White)
                         .backgroundColor(Colors.Transparent)
                         .attrsModifier {
-                            attr("placeholder", Res.string.search_author)
+                            attr("placeholder", placeHolder)
                             attr("type", "search")
                             onKeyDown { event ->
                                 if (event.key == "Enter" && searchText.isNotEmpty()) {

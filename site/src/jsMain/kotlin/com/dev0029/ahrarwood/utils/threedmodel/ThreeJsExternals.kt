@@ -35,6 +35,7 @@ external class AmbientLight(color: Int, intensity: Double = definedExternally)
 
 external class DirectionalLight(color: Int, intensity: Double = definedExternally) {
     var position: dynamic
+    var target: Object3D
 }
 
 open external class Object3D {
@@ -50,6 +51,7 @@ open external class Object3D {
 external interface Material {
     val type: String
     val name: String
+    var needsUpdate: Boolean
 }
 
 external class MeshPhongMaterial {
@@ -100,9 +102,10 @@ external class Mesh(
     var material2: Material
 }
 
-external class BufferGeometry : EventDispatcher {
+open external class BufferGeometry : EventDispatcher {
     var attributes: dynamic
     var index: BufferAttribute?
+    var boundingBox: Box3?
 
     fun setAttribute(name: String, attribute: BufferAttribute): BufferGeometry
     fun setIndex(index: BufferAttribute): BufferGeometry
@@ -130,7 +133,8 @@ open external class EventDispatcher {
 
 external class MeshStandardMaterial(params: dynamic = definedExternally,
                                     override val type: String,
-                                    override val name: String
+                                    override val name: String,
+                                    override var needsUpdate: Boolean
 ) : Material {
     var color: Color
     var metalness: Double
@@ -153,6 +157,8 @@ external interface WebGLRendererOptions {
 }
 
 external class Box3 {
+    var min: Vector3
+    var max: Vector3
     fun setFromObject(obj: dynamic): Box3
     fun getCenter(target: Vector3): Vector3
     fun getSize(target: Vector3): Vector3
@@ -160,4 +166,8 @@ external class Box3 {
 
 external interface MeshPhysicalMaterial : Material {
     var color: Color
+    var map: Texture?
+}
+external class Texture {
+    var id: Int
 }

@@ -11,6 +11,7 @@ import com.dev0029.ahrarwood.components.layouts.Dialog
 import com.dev0029.ahrarwood.components.layouts.SearchView
 import com.dev0029.ahrarwood.components.sections.home.HomeFooter
 import com.dev0029.ahrarwood.components.sections.home.HomeHeader
+import com.dev0029.ahrarwood.components.widgets.TwoWeightText
 import com.dev0029.ahrarwood.constants.PageRoutes
 import com.dev0029.ahrarwood.extensions.getRandomHexColor
 import com.dev0029.ahrarwood.extensions.ignoreNull
@@ -22,12 +23,13 @@ import com.dev0029.ahrarwood.models.BookListModel
 import com.dev0029.ahrarwood.network.ApiService
 import com.dev0029.ahrarwood.network.model.SearchResult
 import com.dev0029.ahrarwood.utils.threedmodel.Scene
-import com.dev0029.ahrarwood.utils.threedmodel.setupGlftModel
+import com.dev0029.ahrarwood.utils.threedmodel.library.setupLibraryGlftModel
 import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
+import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
@@ -53,9 +55,14 @@ import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import kotlinx.browser.document
 import kotlinx.coroutines.launch
+import org.jetbrains.compose.web.css.Color
+import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.StyleSheet
+import org.jetbrains.compose.web.css.border
 import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.css.rgb
 import org.jetbrains.compose.web.dom.Div
+import org.jetbrains.compose.web.dom.Text
 import org.w3c.dom.HTMLElement
 import kotlin.random.Random
 
@@ -93,7 +100,7 @@ fun CreateMiniatureLibraryPage(
             Box(
                 modifier = modifier
                     .fillMaxWidth()
-                    .height(if (!breakpoint.isMobileCompatible()) 140.px else 120.px)
+                    .height(if (!breakpoint.isMobileCompatible()) 110.px else 90.px)
                     .padding(leftRight = if (!breakpoint.isMobileCompatible()) 96.px else 16.px)
                     .align(Alignment.TopCenter)
                     .backgroundColor(color = primaryColor),
@@ -110,7 +117,7 @@ fun CreateMiniatureLibraryPage(
                         .align(if (!breakpoint.isMobileCompatible()) Alignment.BottomStart else Alignment.TopStart)
                         .margin(bottom = 8.px, top = if (!breakpoint.isMobileCompatible()) 0.px else 20.px))
                 Column(modifier = modifier.fillMaxWidth()
-                    .align(if (!breakpoint.isMobileCompatible()) Alignment.CenterEnd else Alignment.Center),
+                    .align(if (!breakpoint.isMobileCompatible()) Alignment.TopEnd else Alignment.Center),
                     horizontalAlignment = Alignment.End) {
                     SpanText(text = "${selectedBooks.value.size}/60",
                         modifier = modifier.color(Colors.White).fontSize(if (!breakpoint.isMobileCompatible()) 20.px else 14.px))
@@ -168,30 +175,58 @@ fun CreateMiniatureLibraryPage(
                     .align(Alignment.CenterStart),
                 contentAlignment = Alignment.Center
             ) {
-                Column(
+                Box(
                     modifier = modifier.fillMaxWidth()
                         .fillMaxHeight()
                         .align(Alignment.Center)
                     ,
-                    verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Div(attrs = {
-                        classes(ModelStyles.modelContainer)
-                        id("three-container") // ID to target the container
-                        style {
-                            //  border(1.px, LineStyle.Solid,rgb(200,200,200))
+                    Column(
+                        modifier = modifier.align(Alignment.TopStart)
+                            .margin(left = 24.px, top = 24.px)
+                    ) {
+                        TwoWeightText(modifier,"•Material:","Pine",showIcon = false)
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = modifier
+                        ) {
+                            SpanText(
+                                text = "•Color:",
+                                modifier = modifier
+                                    .fontWeight(FontWeight.Normal)
+                            )
+                            Box(
+                                modifier = modifier
+                                    .backgroundColor(Color("#4b646d"))
+                                    .borderRadius(5.px)
+                                    .margin(left = 8.px)
+                                    .styleModifier {
+                                        property("width", "40px")
+                                        property("height", "40px")
+                                    }
+                            )
                         }
-                    }) {
-                        LaunchedEffect(Unit) {
-                            scene.value = setupGlftModel("three-container", onModelClick = { id ->
-                                val book = selectedBooks.value.firstOrNull { it.id == id }
-                                book?.let {
-                                    val title = book.title
-                                    val coverUrl = "https://covers.openlibrary.org/b/isbn/${book.isbn}-L.jpg"
-                                    isDialogOpen.value = BookDialogModel(true,id,title,coverUrl)
-                                }
-                            })
+                    }
+                    Box(
+                        modifier = modifier.align(Alignment.Center)
+                    ) {
+                        Div(attrs = {
+                            classes(ModelStyles.modelContainer)
+                            id("three-container") // ID to target the container
+                            style {
+                                //  border(1.px, LineStyle.Solid,rgb(200,200,200))
+                            }
+                        }) {
+                            LaunchedEffect(Unit) {
+                                scene.value = setupLibraryGlftModel("three-container", onModelClick = { id ->
+                                    val book = selectedBooks.value.firstOrNull { it.id == id }
+                                    book?.let {
+                                        val title = book.title
+                                        val coverUrl = "https://covers.openlibrary.org/b/isbn/${book.isbn}-L.jpg"
+                                        isDialogOpen.value = BookDialogModel(true,id,title,coverUrl)
+                                    }
+                                })
+                            }
                         }
                     }
                 }

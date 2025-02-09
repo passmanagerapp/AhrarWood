@@ -21,7 +21,8 @@ import org.jetbrains.compose.web.css.px
 fun TwoWeightText(
     modifier: Modifier,
     textNormal: String,
-    textBold: String
+    textBold: String,
+    showIcon: Boolean = true
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -30,16 +31,15 @@ fun TwoWeightText(
         SpanText(
             text = textNormal,
             modifier = modifier
-                .color(Colors.Black)
                 .fontWeight(FontWeight.Normal)
         )
         SpanText(
             text = textBold,
             modifier = modifier
-                .color(Colors.Black)
                 .fontWeight(FontWeight.Bold)
                 .margin(left = 1.px, right = 6.px)
         )
+        if (showIcon)
         FaCopy(
             modifier = modifier
                 .cursor(Cursor.Pointer)

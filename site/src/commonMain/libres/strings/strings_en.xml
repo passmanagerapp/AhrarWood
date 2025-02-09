@@ -55,5 +55,16 @@
 
     <!-- Book stands -->
     <string name="book_stands_header_title">Bestseller book stands</string>
-    <string name="book_stands_header_desc">Preview our bestseller book stand with 3d model</string>
+    <string name="book_stands_header_desc">Book stands</string>
+    <string name="color">•Color:</string>
+    <string name="material">•Material:</string>
+    <string name="beech">Beech</string>
+    <string name="natural">Natural</string>
+    <string name="white">White</string>
+    <string name="matte_black">Matte black</string>
+    <string name="honey">Honey</string>
+    <string name="wenge">Wenge</string>
+    <string name="oak">Oak</string>
+    <string name="light_oak">Light oak</string>
+    <string name="natural_walnut">Natural walnut</string>
 </resources>

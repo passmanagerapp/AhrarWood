@@ -55,5 +55,16 @@
 
     <!-- Book stands -->
     <string name="book_stands_header_title">En çok beğenilen kitap standları</string>
-    <string name="book_stands_header_desc">3d modellerimizi görüntüle</string>
+    <string name="book_stands_header_desc">Kitap standları</string>
+    <string name="color">•Renk:</string>
+    <string name="material">•Malzeme:</string>
+    <string name="beech">Kayın</string>
+    <string name="natural">Doğal</string>
+    <string name="white">Beyaz</string>
+    <string name="matte_black">Mat siyah</string>
+    <string name="honey">Bal</string>
+    <string name="wenge">Venge</string>
+    <string name="oak">Meşe</string>
+    <string name="light_oak">Açık meşe</string>
+    <string name="natural_walnut">Doğal ceviz</string>
 </resources>

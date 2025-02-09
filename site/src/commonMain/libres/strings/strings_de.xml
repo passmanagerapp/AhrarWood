@@ -54,5 +54,16 @@
 
     <!-- Book stands -->
     <string name="book_stands_header_title">Bestseller-Buchständer</string>
-    <string name="book_stands_header_desc">Sehen Sie sich unseren Bestseller-Buchständer als 3D-Modell an</string>
+    <string name="book_stands_header_desc">Buchständer</string>
+    <string name="color">•Farbe:</string>
+    <string name="material">•Material:</string>
+    <string name="beech">Buche</string>
+    <string name="natural">Natur</string>
+    <string name="white">Weiß</string>
+    <string name="matte_black">Mattschwarz</string>
+    <string name="honey">Honig</string>
+    <string name="wenge">Wenge</string>
+    <string name="oak">Eiche</string>
+    <string name="light_oak">Helle Eiche</string>
+    <string name="natural_walnut">Naturwalnuss</string>
 </resources>
