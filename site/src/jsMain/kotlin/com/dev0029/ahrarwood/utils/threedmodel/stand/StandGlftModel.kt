@@ -115,10 +115,7 @@ fun setupStandGlftModel(
         if (intersects.isNotEmpty()) {
             val clickedObject = intersects[0].`object`
             if (clickedObject.material.type == "MeshStandardMaterial") {
-                println("objectName standart = ${clickedObject.name}")
                 onModelClick(clickedObject.name)
-            } else if (clickedObject.material.type == "MeshPhysicalMaterial") {
-                println("objectName physical = ${clickedObject.name}")
             }
         }
     }

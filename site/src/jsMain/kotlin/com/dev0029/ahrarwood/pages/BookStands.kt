@@ -143,7 +143,7 @@ fun BookStands(
                         },
                         searchResults = emptyList(),
                         onResultClick = {},
-                        placeHolder = "Add personalization"
+                        placeHolder = Res.string.enter_personalization
                     )
                 }
             }
@@ -167,17 +167,16 @@ fun BookStands(
                         index = 0,
                         selectedIndex = currentIndex.value,
                         onClick = {
+                            if (scene.value == null)
+                                return@BoxColor
                             currentIndex.value = it
-                            //(scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial).color.set(0xD7B899)
                             val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
-                                println("woodColor updating..0")
                                 texture.value = material.map
                                 woodColor.value = material.color
                             }
-                            println("textureColor: ${woodColor.value?.getHex()}")
                             material.map = texture.value
-                            material.color = woodColor.value ?: com.dev0029.ahrarwood.utils.threedmodel.Color()
+                            material.color = com.dev0029.ahrarwood.utils.threedmodel.Color()
                             material.needsUpdate = true
                         }
                     )
@@ -187,10 +186,11 @@ fun BookStands(
                         index = 1,
                         selectedIndex = currentIndex.value,
                         onClick = {
+                            if (scene.value == null)
+                                return@BoxColor
                             currentIndex.value = it
                             val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
-                                println("woodColor updating..1")
                                 texture.value = material.map
                                 woodColor.value = material.color
                             }
@@ -205,6 +205,8 @@ fun BookStands(
                         index = 2,
                         selectedIndex = currentIndex.value,
                         onClick = {
+                            if (scene.value == null)
+                                return@BoxColor
                             currentIndex.value = it
                             val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
@@ -223,6 +225,8 @@ fun BookStands(
                         index = 3,
                         selectedIndex = currentIndex.value,
                         onClick = {
+                            if (scene.value == null)
+                                return@BoxColor
                             currentIndex.value = it
                             val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
@@ -251,6 +255,8 @@ fun BookStands(
                         index = 4,
                         selectedIndex = currentIndex.value,
                         onClick = {
+                            if (scene.value == null)
+                                return@BoxColor
                             currentIndex.value = it
                             val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
@@ -269,6 +275,8 @@ fun BookStands(
                         index = 5,
                         selectedIndex = currentIndex.value,
                         onClick = {
+                            if (scene.value == null)
+                                return@BoxColor
                             currentIndex.value = it
                             val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
@@ -287,6 +295,8 @@ fun BookStands(
                         index = 6,
                         selectedIndex = currentIndex.value,
                         onClick = {
+                            if (scene.value == null)
+                                return@BoxColor
                             currentIndex.value = it
                             val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
@@ -305,6 +315,8 @@ fun BookStands(
                         index = 7,
                         selectedIndex = currentIndex.value,
                         onClick = {
+                            if (scene.value == null)
+                                return@BoxColor
                             /*val textureLoader = TextureLoader()
                             val obj = scene.value?.getObjectByName("ImageFront")
                             val material = obj?.material as MeshPhysicalMaterial

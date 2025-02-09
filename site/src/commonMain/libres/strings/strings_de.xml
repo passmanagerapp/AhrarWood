@@ -66,4 +66,5 @@
     <string name="oak">Eiche</string>
     <string name="light_oak">Helle Eiche</string>
     <string name="natural_walnut">Naturwalnuss</string>
+    <string name="enter_personalization">Personalisierung eingeben</string>
 </resources>

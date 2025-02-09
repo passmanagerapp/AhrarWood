@@ -67,4 +67,5 @@
     <string name="oak">Meşe</string>
     <string name="light_oak">Açık meşe</string>
     <string name="natural_walnut">Doğal ceviz</string>
+    <string name="enter_personalization">İsim girin</string>
 </resources>
