@@ -1,7 +1,7 @@
 package com.dev0029.ahrarwood.constants
 
 object Constants {
-    const val VERSION_CODE = "1.0"
+    const val VERSION_CODE = "1.1"
     const val ETSY_SHOP_URL = "https://www.etsy.com/shop/AhrarWood"
     const val ETSY_MINIBOOK_URL = "https://ahrarwood.etsy.com/listing/1813340574?variation0=5073495747"
     const val INSTAGRAM_SHOP_URL = "https://www.instagram.com/ahrarwood"

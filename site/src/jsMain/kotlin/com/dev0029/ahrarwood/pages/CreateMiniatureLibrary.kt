@@ -217,8 +217,14 @@ fun CreateMiniatureLibraryPage(
                                 //  border(1.px, LineStyle.Solid,rgb(200,200,200))
                             }
                         }) {
+                            val width = if (breakpoint.isMobileCompatible()) 720.0 else 1080.0
+                            val height = if (breakpoint.isMobileCompatible()) 460.0 else 690.0
                             LaunchedEffect(Unit) {
-                                scene.value = setupLibraryGlftModel("three-container", onModelClick = { id ->
+                                scene.value = setupLibraryGlftModel(
+                                    containerId = "three-container",
+                                    width = width,
+                                    height = height,
+                                    onModelClick = { id ->
                                     val book = selectedBooks.value.firstOrNull { it.id == id }
                                     book?.let {
                                         val title = book.title

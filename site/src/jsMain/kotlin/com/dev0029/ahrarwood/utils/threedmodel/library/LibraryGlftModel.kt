@@ -24,6 +24,8 @@ import kotlin.math.sin
 
 fun setupLibraryGlftModel(
     containerId: String,
+    width: Double,
+    height: Double,
     onModelClick:(id:String) -> Unit) : Scene {
     val scene = Scene()
     val loadingDiv = document.createElement("div")
@@ -58,7 +60,7 @@ fun setupLibraryGlftModel(
     }
 
     // Camera setup
-    val camera = PerspectiveCamera(75.0, 1080.0 / 690, 0.1, 1000.0)
+    val camera = PerspectiveCamera(75.0, width / height, 0.1, 1000.0)
 
     camera.position.z = 10
 
@@ -88,7 +90,7 @@ fun setupLibraryGlftModel(
     }
     val renderer = WebGLRenderer(options = rendererOptions)
     renderer.setClearColor(0xffffff,0.0)
-    renderer.setSize(1080, 690)
+    renderer.setSize(width.toInt(), height.toInt())
     renderer.outputEncoding = 3001
     renderer.setPixelRatio(window.devicePixelRatio)
     renderer.toneMapping = 5

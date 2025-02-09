@@ -350,10 +350,12 @@ fun BookStands(
                         id("triangle-container")
                     }) {
                         LaunchedEffect(Unit) {
+                            val width = if (breakpoint.isMobileCompatible()) 720.0 else 1080.0
+                            val height = if (breakpoint.isMobileCompatible()) 460.0 else 720.0
                             scene.value = setupStandGlftModel(
                                 containerId = "triangle-container",
-                                width = 1080.0,
-                                height = 720.0,
+                                width = width,
+                                height = height,
                                 {})
                         }
                     }
