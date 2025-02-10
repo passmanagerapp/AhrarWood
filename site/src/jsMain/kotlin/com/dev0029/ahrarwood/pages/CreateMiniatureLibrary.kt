@@ -25,8 +25,8 @@ import com.dev0029.ahrarwood.network.model.SearchResult
 import com.dev0029.ahrarwood.utils.threedmodel.Scene
 import com.dev0029.ahrarwood.utils.threedmodel.library.setupLibraryGlftModel
 import com.varabyte.kobweb.compose.css.Cursor
+import com.varabyte.kobweb.compose.css.FontSize
 import com.varabyte.kobweb.compose.css.FontWeight
-import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
@@ -52,6 +52,7 @@ import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.components.forms.Button
 import com.varabyte.kobweb.silk.components.text.SpanText
+import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import kotlinx.browser.document
 import kotlinx.coroutines.launch
@@ -62,7 +63,6 @@ import org.jetbrains.compose.web.css.border
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.rgb
 import org.jetbrains.compose.web.dom.Div
-import org.jetbrains.compose.web.dom.Text
 import org.w3c.dom.HTMLElement
 import kotlin.random.Random
 
@@ -95,7 +95,7 @@ fun CreateMiniatureLibraryPage(
         HomeHeader(PageRoutes.CREATE_MINIATURE_LIBRARY,modifier)
         Box(modifier = modifier
             .fillMaxSize()
-            .padding(top = if (!breakpoint.isMobileCompatible()) 104.px else 84.px, bottom = 96.px)
+            .padding(top = if (!breakpoint.isMobileCompatible()) 104.px else 84.px, bottom = if (!breakpoint.isMobileCompatible()) 96.px else 56.px)
         ) {
             Box(
                 modifier = modifier
@@ -116,11 +116,11 @@ fun CreateMiniatureLibraryPage(
                         .fontWeight(FontWeight.Thin).color(Colors.White)
                         .align(if (!breakpoint.isMobileCompatible()) Alignment.BottomStart else Alignment.TopStart)
                         .margin(bottom = 8.px, top = if (!breakpoint.isMobileCompatible()) 0.px else 20.px))
-                Column(modifier = modifier.fillMaxWidth()
+                Column(modifier = modifier
                     .align(if (!breakpoint.isMobileCompatible()) Alignment.TopEnd else Alignment.Center),
                     horizontalAlignment = Alignment.End) {
                     SpanText(text = "${selectedBooks.value.size}/60",
-                        modifier = modifier.color(Colors.White).fontSize(if (!breakpoint.isMobileCompatible()) 20.px else 14.px))
+                        modifier = modifier.color(Colors.White).fontSize(if (!breakpoint.isMobileCompatible()) 18.px else 12.px))
                     SearchView(
                         modifier = modifier,
                         breakpoint = breakpoint,
@@ -168,6 +168,37 @@ fun CreateMiniatureLibraryPage(
                     )
                 }
             }
+            Column(
+                modifier = modifier
+                    .align(if (breakpoint.isMobileCompatible()) Alignment.TopCenter else Alignment.CenterStart)
+                    .margin(
+                        top = if (!breakpoint.isMobileCompatible()) 120.px else 100.px,
+                        left = if (!breakpoint.isMobileCompatible()) 24.px else 0.px,
+                    )
+            ) {
+                TwoWeightText(modifier,Res.string.material,Res.string.pine,breakpoint,showIcon = false)
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = modifier
+                ) {
+                    SpanText(
+                        text = Res.string.color,
+                        modifier = modifier
+                            .fontWeight(FontWeight.Normal)
+                            .fontSize(if (!breakpoint.isMobileCompatible()) FontSize.Inherit else FontSize.Small)
+                    )
+                    Box(
+                        modifier = modifier
+                            .backgroundColor(Color("#4b646d"))
+                            .borderRadius(5.px)
+                            .margin(left = 8.px)
+                            .styleModifier {
+                                property("width", "40px")
+                                property("height", "40px")
+                            }
+                    )
+                }
+            }
             Box(
                 modifier = modifier
                     .fillMaxSize()
@@ -181,32 +212,6 @@ fun CreateMiniatureLibraryPage(
                         .align(Alignment.Center)
                     ,
                 ) {
-                    Column(
-                        modifier = modifier.align(Alignment.TopStart)
-                            .margin(left = 24.px, top = 24.px)
-                    ) {
-                        TwoWeightText(modifier,"•Material:","Pine",showIcon = false)
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = modifier
-                        ) {
-                            SpanText(
-                                text = "•Color:",
-                                modifier = modifier
-                                    .fontWeight(FontWeight.Normal)
-                            )
-                            Box(
-                                modifier = modifier
-                                    .backgroundColor(Color("#4b646d"))
-                                    .borderRadius(5.px)
-                                    .margin(left = 8.px)
-                                    .styleModifier {
-                                        property("width", "40px")
-                                        property("height", "40px")
-                                    }
-                            )
-                        }
-                    }
                     Box(
                         modifier = modifier.align(Alignment.Center)
                     ) {
@@ -217,8 +222,8 @@ fun CreateMiniatureLibraryPage(
                                 //  border(1.px, LineStyle.Solid,rgb(200,200,200))
                             }
                         }) {
-                            val width = if (breakpoint.isMobileCompatible()) 720.0 else 1080.0
-                            val height = if (breakpoint.isMobileCompatible()) 460.0 else 690.0
+                            val width = if (breakpoint.isMobileCompatible()) 360.0 else 1080.0
+                            val height = if (breakpoint.isMobileCompatible()) 220.0 else 690.0
                             LaunchedEffect(Unit) {
                                 scene.value = setupLibraryGlftModel(
                                     containerId = "three-container",
@@ -246,7 +251,7 @@ fun CreateMiniatureLibraryPage(
                 },
                 modifier = Modifier.backgroundColor(secondaryColor)
                     .padding(topBottom = 12.px, leftRight = 24.px)
-                    .margin(32.px)
+                    .margin(topBottom = if (breakpoint.isMobileCompatible()) 32.px else 64.px, leftRight = 32.px)
                     .borderRadius(25.px)
                     .cursor(Cursor.Pointer)
                     .align(Alignment.BottomEnd)

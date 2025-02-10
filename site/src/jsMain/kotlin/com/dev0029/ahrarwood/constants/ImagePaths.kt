@@ -5,6 +5,7 @@ object ImagePaths {
     // HOME
     const val LOGO = "banner_logo.png"
     const val SEARCH_ICON = "search_icon.svg"
+    const val CHECK_ICON = "check.svg"
     const val BANNER1 = "banner1.png"
     const val BANNER2 = "banner2.png"
     const val BANNER3 = "banner3.png"

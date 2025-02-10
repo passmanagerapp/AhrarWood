@@ -24,7 +24,6 @@ import org.jetbrains.compose.web.dom.P
 fun HomeShippingMobile(modifier: Modifier) {
     val imageSrc = if (Utils.isBrowserLanguageEn()) ImagePaths.SHIPPING1 else ImagePaths.SHIPPING2
     Column(modifier = modifier.fillMaxWidth()
-        .height(320.px)
         .padding(leftRight = 16.px )) {
         SpanText(Res.string.shipping_title, modifier = modifier.fontSize(16.px).fontWeight(FontWeight.Bold))
         Column(modifier = modifier.fillMaxSize().margin(top = 24.px)) {

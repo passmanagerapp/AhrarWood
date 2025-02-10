@@ -51,6 +51,7 @@
     <string name="result_found">Ergebnis gefunden</string>
     <string name="loading">Laden:</string>
     <string name="not_loaded">Modell nicht geladen</string>
+    <string name="pine">Kiefer</string>
 
     <!-- Book stands -->
     <string name="book_stands_header_title">Bestseller-Buchständer</string>

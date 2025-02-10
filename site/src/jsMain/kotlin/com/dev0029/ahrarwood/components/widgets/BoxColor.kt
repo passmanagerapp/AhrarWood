@@ -1,6 +1,7 @@
 package com.dev0029.ahrarwood.components.widgets
 
 import androidx.compose.runtime.Composable
+import com.dev0029.ahrarwood.extensions.isMobileCompatible
 import com.dev0029.ahrarwood.models.WoodPaint
 import com.varabyte.kobweb.browser.dom.ElementTarget
 import com.varabyte.kobweb.compose.css.Cursor
@@ -19,6 +20,8 @@ import com.varabyte.kobweb.compose.ui.modifiers.onMouseOver
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.components.overlay.PopupPlacement
 import com.varabyte.kobweb.silk.components.overlay.Tooltip
+import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.CSSColorValue
 import org.jetbrains.compose.web.css.Color
 import org.jetbrains.compose.web.css.LineStyle
@@ -29,23 +32,25 @@ import org.w3c.dom.HTMLElement
 fun BoxColor(
     modifier: Modifier,
     paint: WoodPaint,
+    breakpoint: Breakpoint,
     index: Int,
     selectedIndex: Int,
     onClick: (index:Int) -> Unit
 ) {
     val border = if (index == selectedIndex) 2.px else 1.px
-
+    val isDarkMode = ColorMode.current.isDark
+    val borderColor = if (isDarkMode) Colors.White else Colors.Black
     Box(
         modifier = modifier
             .cursor(Cursor.Pointer)
             .backgroundColor(paint.color)
             .borderRadius(5.px)
-            .margin(left = 8.px)
+            .margin(left = if (breakpoint.isMobileCompatible()) 4.px else 8.px)
             .styleModifier {
-                property("width", "40px")
-                property("height", "40px")
+                property("width", if (breakpoint.isMobileCompatible()) "32px" else "40px")
+                property("height", if (breakpoint.isMobileCompatible()) "32px" else "40px")
             }
-            .border(border, LineStyle.Solid, if (index == selectedIndex) Colors.Black else Colors.Transparent)
+            .border(border, LineStyle.Solid, if (index == selectedIndex) borderColor else Colors.Transparent)
             .onClick {
                 onClick(index)
             }

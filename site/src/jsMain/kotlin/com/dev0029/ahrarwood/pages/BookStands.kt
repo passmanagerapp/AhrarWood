@@ -7,13 +7,25 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import com.dev0029.ahrarwood.components.layouts.SearchView
 import com.dev0029.ahrarwood.components.sections.home.HomeHeader
+import com.dev0029.ahrarwood.components.widgets.BoxColor
 import com.dev0029.ahrarwood.components.widgets.TwoWeightText
 import com.dev0029.ahrarwood.constants.PageRoutes
+import com.dev0029.ahrarwood.enums.SearchViewType
 import com.dev0029.ahrarwood.extensions.isMobileCompatible
 import com.dev0029.ahrarwood.extensions.primaryColor
+import com.dev0029.ahrarwood.models.WoodPaint
+import com.dev0029.ahrarwood.utils.Utils
+import com.dev0029.ahrarwood.utils.threedmodel.FontLoader
+import com.dev0029.ahrarwood.utils.threedmodel.Mesh
 import com.dev0029.ahrarwood.utils.threedmodel.MeshPhysicalMaterial
+import com.dev0029.ahrarwood.utils.threedmodel.MeshStandardMaterial
 import com.dev0029.ahrarwood.utils.threedmodel.Scene
+import com.dev0029.ahrarwood.utils.threedmodel.TextGeometry
+import com.dev0029.ahrarwood.utils.threedmodel.TextGeometryParameters
+import com.dev0029.ahrarwood.utils.threedmodel.Texture
 import com.dev0029.ahrarwood.utils.threedmodel.stand.setupStandGlftModel
+import com.varabyte.kobweb.compose.css.Cursor
+import com.varabyte.kobweb.compose.css.FontSize
 import com.varabyte.kobweb.compose.css.FontWeight
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -23,40 +35,33 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
 import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
+import com.varabyte.kobweb.compose.ui.modifiers.bottom
 import com.varabyte.kobweb.compose.ui.modifiers.color
+import com.varabyte.kobweb.compose.ui.modifiers.cursor
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
 import com.varabyte.kobweb.compose.ui.modifiers.fontWeight
+import com.varabyte.kobweb.compose.ui.modifiers.gap
 import com.varabyte.kobweb.compose.ui.modifiers.height
+import com.varabyte.kobweb.compose.ui.modifiers.left
 import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.padding
-import com.varabyte.kobweb.core.Page
-import com.varabyte.kobweb.silk.components.text.SpanText
-import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
-import org.jetbrains.compose.web.css.Color
-import org.jetbrains.compose.web.css.px
-import org.jetbrains.compose.web.dom.Div
-import com.dev0029.ahrarwood.components.widgets.BoxColor
-import com.dev0029.ahrarwood.models.WoodPaint
-import com.dev0029.ahrarwood.utils.Utils
-import com.dev0029.ahrarwood.utils.threedmodel.FontLoader
-import com.dev0029.ahrarwood.utils.threedmodel.Mesh
-import com.dev0029.ahrarwood.utils.threedmodel.MeshStandardMaterial
-import com.dev0029.ahrarwood.utils.threedmodel.TextGeometry
-import com.dev0029.ahrarwood.utils.threedmodel.TextGeometryParameters
-import com.dev0029.ahrarwood.utils.threedmodel.Texture
-import com.varabyte.kobweb.compose.css.Cursor
-import com.varabyte.kobweb.compose.ui.modifiers.bottom
-import com.varabyte.kobweb.compose.ui.modifiers.cursor
-import com.varabyte.kobweb.compose.ui.modifiers.gap
-import com.varabyte.kobweb.compose.ui.modifiers.left
 import com.varabyte.kobweb.compose.ui.modifiers.position
 import com.varabyte.kobweb.compose.ui.modifiers.size
 import com.varabyte.kobweb.compose.ui.toAttrs
+import com.varabyte.kobweb.core.Page
+import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
+import org.jetbrains.compose.web.css.Color
+import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.Position
+import org.jetbrains.compose.web.css.border
 import org.jetbrains.compose.web.css.percent
+import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.css.rgb
+import org.jetbrains.compose.web.dom.Div
 
 @Page
 @Composable
@@ -79,7 +84,7 @@ fun BookStands(
         Box(
             modifier = modifier
                 .fillMaxSize()
-                .margin(top = 102.px),
+                .margin(top = if (!breakpoint.isMobileCompatible()) 104.px else 84.px),
         ) {
             // SubHeader
             Box(
@@ -101,11 +106,12 @@ fun BookStands(
                         .fontWeight(FontWeight.Thin).color(Colors.White)
                         .align(if (!breakpoint.isMobileCompatible()) Alignment.BottomStart else Alignment.TopStart)
                         .margin(bottom = 8.px, top = if (!breakpoint.isMobileCompatible()) 0.px else 20.px))
-                Column(modifier = modifier.fillMaxWidth()
-                    .align(if (!breakpoint.isMobileCompatible()) Alignment.CenterEnd else Alignment.Center),
+                Column(modifier = modifier
+                    .align(if (!breakpoint.isMobileCompatible()) Alignment.CenterEnd else Alignment.BottomEnd),
                     horizontalAlignment = Alignment.End) {
                     SearchView(
                         modifier = modifier,
+                        type = SearchViewType.SUBMIT,
                         breakpoint = breakpoint,
                         scope = scope,
                         isSearchExpanded = isSearchExpanded.value,
@@ -148,10 +154,14 @@ fun BookStands(
                 }
             }
             Column(
-                modifier = modifier.align(Alignment.CenterStart)
-                    .margin(left = 24.px, top = 24.px)
+                modifier = modifier
+                    .align(if (breakpoint.isMobileCompatible()) Alignment.TopCenter else Alignment.CenterStart)
+                    .margin(
+                        top = if (!breakpoint.isMobileCompatible()) 24.px else 100.px,
+                        left = if (!breakpoint.isMobileCompatible()) 24.px else 0.px,
+                    )
             ) {
-                TwoWeightText(modifier,Res.string.material,Res.string.beech,showIcon = false)
+                TwoWeightText(modifier,Res.string.material,Res.string.beech,breakpoint,false)
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = modifier
@@ -160,10 +170,12 @@ fun BookStands(
                         text = Res.string.color,
                         modifier = modifier
                             .fontWeight(FontWeight.Normal)
+                            .fontSize(if (!breakpoint.isMobileCompatible()) FontSize.Inherit else FontSize.Small)
                     )
                     BoxColor(
                         modifier = modifier,
                         paint = WoodPaint(Res.string.natural,Color("#D7B899")),
+                        breakpoint = breakpoint,
                         index = 0,
                         selectedIndex = currentIndex.value,
                         onClick = {
@@ -183,6 +195,7 @@ fun BookStands(
                     BoxColor(
                         modifier = modifier,
                         paint = WoodPaint(Res.string.white,Color("#ffffff")),
+                        breakpoint = breakpoint,
                         index = 1,
                         selectedIndex = currentIndex.value,
                         onClick = {
@@ -202,6 +215,7 @@ fun BookStands(
                     BoxColor(
                         modifier = modifier,
                         paint = WoodPaint(Res.string.matte_black,Colors.Black),
+                        breakpoint = breakpoint,
                         index = 2,
                         selectedIndex = currentIndex.value,
                         onClick = {
@@ -222,6 +236,7 @@ fun BookStands(
                     BoxColor(
                         modifier = modifier,
                         paint = WoodPaint(Res.string.honey,Color("#C5AE7A")),
+                        breakpoint = breakpoint,
                         index = 3,
                         selectedIndex = currentIndex.value,
                         onClick = {
@@ -247,11 +262,13 @@ fun BookStands(
                         text = Res.string.color,
                         modifier = modifier
                             .color(Colors.Transparent)
+                            .fontSize(if (!breakpoint.isMobileCompatible()) FontSize.Inherit else FontSize.Small)
                             .fontWeight(FontWeight.Normal)
                     )
                     BoxColor(
                         modifier = modifier,
                         paint = WoodPaint(Res.string.wenge,Color("#4A3B31")),
+                        breakpoint = breakpoint,
                         index = 4,
                         selectedIndex = currentIndex.value,
                         onClick = {
@@ -272,6 +289,7 @@ fun BookStands(
                     BoxColor(
                         modifier = modifier,
                         paint = WoodPaint(Res.string.oak,Color("#8F7C58")),
+                        breakpoint = breakpoint,
                         index = 5,
                         selectedIndex = currentIndex.value,
                         onClick = {
@@ -292,6 +310,7 @@ fun BookStands(
                     BoxColor(
                         modifier = modifier,
                         paint = WoodPaint(Res.string.light_oak,Color("#C4A67A")),
+                        breakpoint = breakpoint,
                         index = 6,
                         selectedIndex = currentIndex.value,
                         onClick = {
@@ -312,6 +331,7 @@ fun BookStands(
                     BoxColor(
                         modifier = modifier,
                         paint = WoodPaint(Res.string.natural_walnut,Color("#47290F")),
+                        breakpoint = breakpoint,
                         index = 7,
                         selectedIndex = currentIndex.value,
                         onClick = {
@@ -339,6 +359,7 @@ fun BookStands(
 
             Box(
                 modifier = modifier
+                    .margin(top = if (!breakpoint.isMobileCompatible()) 110.px else 90.px)
                     .align(Alignment.Center)
             ) {
 
@@ -348,10 +369,13 @@ fun BookStands(
                     Div(attrs = {
                         classes(ModelStyles.modelContainer)
                         id("triangle-container")
+                        style {
+                          //    border(1.px, LineStyle.Solid,rgb(200,200,200))
+                        }
                     }) {
                         LaunchedEffect(Unit) {
-                            val width = if (breakpoint.isMobileCompatible()) 720.0 else 1080.0
-                            val height = if (breakpoint.isMobileCompatible()) 460.0 else 720.0
+                            val width = if (breakpoint.isMobileCompatible()) 360.0 else 1080.0
+                            val height = if (breakpoint.isMobileCompatible()) 220.0 else 720.0
                             scene.value = setupStandGlftModel(
                                 containerId = "triangle-container",
                                 width = width,

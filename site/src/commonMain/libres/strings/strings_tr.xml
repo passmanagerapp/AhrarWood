@@ -52,6 +52,7 @@
     <string name="result_found">sonuç bulundu</string>
     <string name="loading">Yükleniyor:</string>
     <string name="not_load">Model yüklenmedi</string>
+    <string name="pine">Çam</string>
 
     <!-- Book stands -->
     <string name="book_stands_header_title">En çok beğenilen kitap standları</string>

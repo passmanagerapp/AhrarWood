@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import com.dev0029.ahrarwood.components.widgets.TwoWeightText2
 import com.dev0029.ahrarwood.constants.ImagePaths
+import com.dev0029.ahrarwood.enums.SearchViewType
 import com.dev0029.ahrarwood.extensions.isMobileCompatible
 import com.dev0029.ahrarwood.network.model.Doc
 import com.varabyte.kobweb.compose.css.Cursor
@@ -38,6 +39,7 @@ import org.w3c.dom.HTMLElement
 @Composable
 fun SearchView(
     modifier: Modifier,
+    type: SearchViewType = SearchViewType.SEARCH,
     breakpoint: Breakpoint,
     scope: CoroutineScope,
     isSearchExpanded: Boolean,
@@ -56,18 +58,14 @@ fun SearchView(
     var isCollapse = remember { mutableStateOf(false) }
     Box(
         modifier = Modifier
-            .fillMaxWidth()
-            .position(Position.Relative)
             .width(360.px)
-            .zIndex(1000)
     ) {
         // Search bar
         Row(
             modifier = modifier
                 .width(if (isSearchExpanded) 360.px else 40.px)
-                .height(40.px)
+                .height(if (!breakpoint.isMobileCompatible()) 40.px else 32.px)
                 .margin(topBottom = if (!breakpoint.isMobileCompatible()) 6.px else 2.px)
-                .position(Position.Absolute)  // Fixed position
                 .right(0.px)  // Align to right
                 .border {
                     width(1.px)
@@ -76,8 +74,7 @@ fun SearchView(
                 }
                 .borderRadius(4.px)
                 .backgroundColor(Colors.Transparent)
-                .transition(Transition.all(300.ms, TransitionTimingFunction.EaseInOut))
-                .zIndex(1001),
+                .transition(Transition.all(300.ms, TransitionTimingFunction.EaseInOut)),
             horizontalArrangement = Arrangement.End,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -93,10 +90,9 @@ fun SearchView(
                         .outline(0.px)
                         .borderRadius(0.px)
                         .color(Colors.White)
-                        .backgroundColor(Colors.Transparent)
                         .attrsModifier {
                             attr("placeholder", placeHolder)
-                            attr("type", "search")
+                            attr("type", "text")
                             onKeyDown { event ->
                                 if (event.key == "Enter" && searchText.isNotEmpty()) {
                                     event.preventDefault()
@@ -138,7 +134,7 @@ fun SearchView(
                     },
                 contentAlignment = Alignment.Center
             ) {
-                if (isLoading.value)
+                if (isLoading.value && type == SearchViewType.SEARCH)
                     FaSpinner(modifier = modifier
                         .size(20.px)
                         .color(Colors.White)
@@ -146,7 +142,7 @@ fun SearchView(
                     )
                 else
                     Image(
-                        src = ImagePaths.SEARCH_ICON,
+                        src = if (type == SearchViewType.SEARCH) ImagePaths.SEARCH_ICON else ImagePaths.CHECK_ICON,
                         modifier = modifier
                             .width(20.px)
                             .height(20.px)

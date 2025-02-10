@@ -126,7 +126,7 @@ fun CreateMiniatureLibraryOrderPage(
                     Image(ImagePaths.SUCCESS,
                         modifier = modifier.size(124.px))
                     if (!breakpoint.isMobileCompatible())
-                        TwoWeightText(modifier,Res.string.copy_your_id, uniqueId.value)
+                        TwoWeightText(modifier,Res.string.copy_your_id, uniqueId.value,breakpoint)
                     else {
                         Text(Res.string.copy_your_id)
                         Row {

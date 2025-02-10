@@ -29,15 +29,18 @@ fun setupStandGlftModel(
     loadingDiv.id = "loading-${containerId}"
     loadingDiv.apply {
         setAttribute("style", """
-            position: absolute;
-            width: 50%;
-            height: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 16px;
-            color: #3498db;
-            font-weight: bold;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        color: #3498db;
+        font-weight: bold;
         """.trimIndent())
     }
     loadingDiv.textContent = "${Res.string.loading} %0"

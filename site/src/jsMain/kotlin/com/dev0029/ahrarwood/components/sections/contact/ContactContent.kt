@@ -74,7 +74,7 @@ fun ContactContent(
         Box(
             modifier = modifier
                 .fillMaxWidth()
-                .height(if (!breakpoint.isMobileCompatible()) 140.px else 120.px)
+                .height(if (!breakpoint.isMobileCompatible()) 110.px else 90.px)
                 .padding(leftRight = if (!breakpoint.isMobileCompatible()) 96.px else 16.px)
                 .margin(top = 102.px)
                 .align(Alignment.TopCenter)
@@ -93,10 +93,10 @@ fun ContactContent(
                     .margin(bottom = 8.px, top = if (!breakpoint.isMobileCompatible()) 0.px else 20.px))
         }
         Row(
-            modifier =
-            modifier
+            modifier = modifier
                 .align(Alignment.Center)
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .margin(top = if (!breakpoint.isMobileCompatible()) 110.px else 90.px),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {

@@ -52,6 +52,7 @@
     <string name="result_found">result found</string>
     <string name="loading">Loading:</string>
     <string name="not_load">Model not loaded</string>
+    <string name="pine">Pine</string>
 
     <!-- Book stands -->
     <string name="book_stands_header_title">Bestseller book stands</string>

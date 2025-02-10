@@ -49,9 +49,10 @@ fun HomeHeader(
     val breakpoint = rememberBreakpoint()
     var isMobileMenuOpen = remember { mutableStateOf(false) }
     val isDarkMode = ColorMode.current.isDark
+    val bgColor = if (isDarkMode) SitePalettes.dark.nearBackground else SitePalettes.light.nearBackground
     Box(modifier = SmoothColorStyle.toModifier()
         .fillMaxWidth()
-        .backgroundColor(if (isDarkMode) SitePalettes.dark.nearBackground else SitePalettes.light.nearBackground)
+        .backgroundColor(bgColor)
         .position(Position.Fixed)
         .zIndex(100)
         .padding(leftRight = if (breakpoint >= Breakpoint.MD) 96.px else 16.px),
@@ -113,7 +114,7 @@ fun HomeHeader(
                     .position(Position.Fixed)
                     .top(88.px) // Height of header + padding
                     .left(0.px)
-                    .backgroundColor(Colors.White)
+                    .backgroundColor(bgColor)
                     .padding(16.px)
                     .boxShadow(0.px, 4.px, 8.px,null, rgba(0, 0, 0, 0.1))
                     .zIndex(99),
