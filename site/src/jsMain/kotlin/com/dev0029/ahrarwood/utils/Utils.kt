@@ -82,7 +82,12 @@ object Utils {
         val firstPart = words.take(midIndex).joinToString(" ")
         val secondPart = words.drop(midIndex).joinToString(" ")
 
-        return "$firstPart\n$secondPart"
+        val maxLength = maxOf(firstPart.length, secondPart.length)
+        val padding = (maxLength - firstPart.length) / 2
+        val paddedFirstPart = " ".repeat(padding) + firstPart
+
+
+        return "$paddedFirstPart\n$secondPart"
     }
 
 }

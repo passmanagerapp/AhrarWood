@@ -100,7 +100,7 @@ fun BookStands(
                     .fontWeight(FontWeight.Bold)
                     .color(Colors.White)
                     .align(if (!breakpoint.isMobileCompatible()) Alignment.CenterStart else Alignment.TopStart))
-                SpanText("${Res.string.book_stands_header_desc} -> Triangle book stand",
+                SpanText("${Res.string.book_stands_header_desc} -> ${Res.string.triangle_stand}",
                     modifier = modifier
                         .fontSize(if (!breakpoint.isMobileCompatible()) 16.px else 12.px)
                         .fontWeight(FontWeight.Thin).color(Colors.White)
@@ -142,8 +142,7 @@ fun BookStands(
                                 textMaterial.color = com.dev0029.ahrarwood.utils.threedmodel.Color().set(0x000000)
                                 val textMesh = Mesh(geometry, textMaterial)
                                 textMesh.asDynamic().userData.id = 1234
-                                textMesh.position.set(-0.6,0.0,-1.9)
-                               // textMesh.position.x = -textWidth / 2
+                                textMesh.position.set(-textWidth/2,0.0,-1.9)
                                 scene.value?.add(textMesh)
                             })
                         },
@@ -355,6 +354,12 @@ fun BookStands(
                         }
                     )
                 }
+                SpanText(
+                    text = Res.string.color_option,
+                    modifier = modifier
+                        .margin(top = 6.px)
+                        .fontSize(FontSize.Small)
+                )
             }
 
             Box(

@@ -69,4 +69,6 @@
     <string name="light_oak">Açık meşe</string>
     <string name="natural_walnut">Doğal ceviz</string>
     <string name="enter_personalization">İsim girin</string>
+    <string name="color_option">*Renk seçeneği yakında sizlerle..</string>
+    <string name="triangle_stand">Üçgen kitap standı</string>
 </resources>
