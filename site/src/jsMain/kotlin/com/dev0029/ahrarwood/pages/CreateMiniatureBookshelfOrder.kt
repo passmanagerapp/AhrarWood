@@ -58,9 +58,9 @@ import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Text
 import org.w3c.dom.HTMLElement
 
-@Page("create-miniature-library/order")
+@Page("create-miniature-bookshelf/order")
 @Composable
-fun CreateMiniatureLibraryOrderPage(
+fun CreateMiniatureBookshelfOrderPage(
     modifier: Modifier = Modifier
 ) {
     val ctx = rememberPageContext()

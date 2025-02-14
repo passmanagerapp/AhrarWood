@@ -43,7 +43,6 @@ import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
 import com.varabyte.kobweb.compose.ui.modifiers.bottom
 import com.varabyte.kobweb.compose.ui.modifiers.color
 import com.varabyte.kobweb.compose.ui.modifiers.cursor
-import com.varabyte.kobweb.compose.ui.modifiers.fillMaxHeight
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
@@ -69,14 +68,10 @@ import kotlinx.browser.document
 import kotlinx.browser.window
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.web.css.Color
-import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.StyleSheet
-import org.jetbrains.compose.web.css.border
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
-import org.jetbrains.compose.web.css.rgb
-import org.jetbrains.compose.web.dom.Col
 import org.jetbrains.compose.web.dom.Div
 import org.w3c.dom.HTMLElement
 import kotlin.random.Random
@@ -84,7 +79,7 @@ import kotlin.random.Random
 
 @Page
 @Composable
-fun CreateMiniatureLibraryPage(
+fun CreateMiniatureBookshelfPage(
     modifier: Modifier = Modifier
 ) {
     val ctx = rememberPageContext()
