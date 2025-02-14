@@ -53,6 +53,13 @@
     <string name="loading">Yükleniyor:</string>
     <string name="not_load">Model yüklenmedi</string>
     <string name="pine">Çam</string>
+    <string name="beech_pine">Kayın-Çam</string>
+    <string name="interior_exterior">•İç/Dış renk:</string>
+    <string name="oak_white">Meşe/Beyaz</string>
+    <string name="honey_walnut">Bal/Koyu Ceviz</string>
+    <string name="maun_beech">Maun/Kayın</string>
+    <string name="white_white">Beyaz/Beyaz</string>
+    <string name="walnut_walnut">Ceviz/Koyu Ceviz</string>
 
     <!-- Book stands -->
     <string name="book_stands_header_title">En çok beğenilen kitap standları</string>

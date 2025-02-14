@@ -52,6 +52,13 @@
     <string name="loading">Laden:</string>
     <string name="not_loaded">Modell nicht geladen</string>
     <string name="pine">Kiefer</string>
+    <string name="beech_pine">Buche-Kiefer</string>
+    <string name="interior_exterior">•Innen-/Außenfarbe:</string>
+    <string name="oak_white">Eiche/Weiß</string>
+    <string name="honey_walnut">Honig/Dunkelwalnuss</string>
+    <string name="maun_beech">Mahagoni/Buche</string>
+    <string name="white_white">Weiß/Weiß</string>
+    <string name="walnut_walnut">Walnuss/Dunkelwalnuss</string>
 
     <!-- Book stands -->
     <string name="book_stands_header_title">Bestseller-Buchständer</string>

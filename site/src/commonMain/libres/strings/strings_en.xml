@@ -53,6 +53,13 @@
     <string name="loading">Loading:</string>
     <string name="not_load">Model not loaded</string>
     <string name="pine">Pine</string>
+    <string name="beech_pine">Beech-Pine</string>
+    <string name="interior_exterior">•Interior/Exterior color:</string>
+    <string name="oak_white">Oak/White</string>
+    <string name="honey_walnut">Honey/Dark walnut</string>
+    <string name="maun_beech">Maun/Beech</string>
+    <string name="white_white">White/White</string>
+    <string name="walnut_walnut">Walnut/Dark walnut</string>
 
     <!-- Book stands -->
     <string name="book_stands_header_title">Bestseller book stands</string>

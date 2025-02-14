@@ -90,4 +90,15 @@ object Utils {
         return "$paddedFirstPart\n$secondPart"
     }
 
+    fun getVariationNumber(index: Int) : Long {
+        return when(index) {
+            0 -> 5011440445
+            1 -> 4970719470
+            2 -> 4970719472
+            3 -> 4970719474
+            4 -> 4970719476
+            else  -> 5011440445
+        }
+    }
+
 }

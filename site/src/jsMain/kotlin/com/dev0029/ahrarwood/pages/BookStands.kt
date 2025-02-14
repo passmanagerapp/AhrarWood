@@ -71,7 +71,6 @@ fun BookStands(
     val breakpoint = rememberBreakpoint()
     var scene = remember { mutableStateOf<Scene?>(null) }
     var texture = remember { mutableStateOf<Texture?>(null) }
-    var woodColor = remember { mutableStateOf<com.dev0029.ahrarwood.utils.threedmodel.Color?>(null) }
     val currentIndex = remember { mutableStateOf(0) }
     var searchText = remember { mutableStateOf("") }
     var isSearchExpanded = remember { mutableStateOf(true) }
@@ -184,7 +183,6 @@ fun BookStands(
                             val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
                                 texture.value = material.map
-                                woodColor.value = material.color
                             }
                             material.map = texture.value
                             material.color = com.dev0029.ahrarwood.utils.threedmodel.Color()
@@ -193,7 +191,7 @@ fun BookStands(
                     )
                     BoxColor(
                         modifier = modifier,
-                        paint = WoodPaint(Res.string.white,Color("#ffffff")),
+                        paint = WoodPaint(Res.string.white,Color("#d7d6c8")),
                         breakpoint = breakpoint,
                         index = 1,
                         selectedIndex = currentIndex.value,
@@ -204,16 +202,15 @@ fun BookStands(
                             val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
                                 texture.value = material.map
-                                woodColor.value = material.color
                             }
                             material.map = null
-                            material.color.set(0xffffff)
+                            material.color.set(0xd7d6c8)
                             material.needsUpdate = true
                         }
                     )
                     BoxColor(
                         modifier = modifier,
-                        paint = WoodPaint(Res.string.matte_black,Colors.Black),
+                        paint = WoodPaint(Res.string.matte_black,Color("#0a0c09")),
                         breakpoint = breakpoint,
                         index = 2,
                         selectedIndex = currentIndex.value,
@@ -223,18 +220,16 @@ fun BookStands(
                             currentIndex.value = it
                             val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
-                                println("woodColor updating..2")
                                 texture.value = material.map
-                                woodColor.value = material.color
                             }
                             material.map = null
-                            material.color.set(0x000000)
+                            material.color.set(0x0a0c09)
                             material.needsUpdate = true
                         }
                     )
                     BoxColor(
                         modifier = modifier,
-                        paint = WoodPaint(Res.string.honey,Color("#C5AE7A")),
+                        paint = WoodPaint(Res.string.honey,Color("#c9ad71")),
                         breakpoint = breakpoint,
                         index = 3,
                         selectedIndex = currentIndex.value,
@@ -244,12 +239,10 @@ fun BookStands(
                             currentIndex.value = it
                             val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
-                                println("woodColor updating..3")
                                 texture.value = material.map
-                                woodColor.value = material.color
                             }
                             material.map = null
-                            material.color.set(0xC5AE7A)
+                            material.color.set(0xc9ad71)
                             material.needsUpdate = true
                         }
                     )
@@ -266,7 +259,7 @@ fun BookStands(
                     )
                     BoxColor(
                         modifier = modifier,
-                        paint = WoodPaint(Res.string.wenge,Color("#4A3B31")),
+                        paint = WoodPaint(Res.string.wenge,Color("#624835")),
                         breakpoint = breakpoint,
                         index = 4,
                         selectedIndex = currentIndex.value,
@@ -276,18 +269,16 @@ fun BookStands(
                             currentIndex.value = it
                             val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
-                                println("woodColor updating..4")
                                 texture.value = material.map
-                                woodColor.value = material.color
                             }
                             material.map = null
-                            material.color.set(0x4A3B31)
+                            material.color.set(0x624835)
                             material.needsUpdate = true
                         }
                     )
                     BoxColor(
                         modifier = modifier,
-                        paint = WoodPaint(Res.string.oak,Color("#8F7C58")),
+                        paint = WoodPaint(Res.string.oak,Color("#947c53")),
                         breakpoint = breakpoint,
                         index = 5,
                         selectedIndex = currentIndex.value,
@@ -297,18 +288,16 @@ fun BookStands(
                             currentIndex.value = it
                             val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
-                                println("woodColor updating..5")
                                 texture.value = material.map
-                                woodColor.value = material.color
                             }
                             material.map = null
-                            material.color.set(0x8F7C58)
+                            material.color.set(0x947c53)
                             material.needsUpdate = true
                         }
                     )
                     BoxColor(
                         modifier = modifier,
-                        paint = WoodPaint(Res.string.light_oak,Color("#C4A67A")),
+                        paint = WoodPaint(Res.string.light_oak,Color("#c8a573")),
                         breakpoint = breakpoint,
                         index = 6,
                         selectedIndex = currentIndex.value,
@@ -318,12 +307,10 @@ fun BookStands(
                             currentIndex.value = it
                             val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
-                                println("woodColor updating..6")
                                 texture.value = material.map
-                                woodColor.value = material.color
                             }
                             material.map = null
-                            material.color.set(0xC4A67A)
+                            material.color.set(0xc8a573)
                             material.needsUpdate = true
                         }
                     )
@@ -344,9 +331,7 @@ fun BookStands(
                             currentIndex.value = it
                             val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
-                                println("woodColor updating..7")
                                 texture.value = material.map
-                                woodColor.value = material.color
                             }
                             material.map = null
                             material.color.set(0x47290F)
@@ -375,7 +360,7 @@ fun BookStands(
                         classes(ModelStyles.modelContainer)
                         id("triangle-container")
                         style {
-                          //    border(1.px, LineStyle.Solid,rgb(200,200,200))
+                              border(1.px, LineStyle.Solid,rgb(200,200,200))
                         }
                     }) {
                         LaunchedEffect(Unit) {

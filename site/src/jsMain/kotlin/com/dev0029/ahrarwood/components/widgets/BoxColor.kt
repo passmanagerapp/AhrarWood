@@ -52,7 +52,7 @@ fun BoxColor(
             }
             .border(border, LineStyle.Solid, if (index == selectedIndex) borderColor else Colors.Transparent)
             .onClick {
-                //onClick(index)
+                onClick(index)
             }
             .onMouseOver {
                 (it.target as? HTMLElement)?.style?.apply {

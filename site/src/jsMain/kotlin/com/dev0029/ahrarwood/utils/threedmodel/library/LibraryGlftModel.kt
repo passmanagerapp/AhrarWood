@@ -26,6 +26,7 @@ fun setupLibraryGlftModel(
     containerId: String,
     width: Double,
     height: Double,
+    index: Int,
     onModelClick:(id:String) -> Unit) : Scene {
     val scene = Scene()
     val loadingDiv = document.createElement("div")
@@ -65,20 +66,28 @@ fun setupLibraryGlftModel(
     camera.position.z = 10
 
     // Lighting setup
-    val ambientLight = AmbientLight(0xffffff, 1.5)
+    val ambientLight = AmbientLight(0xffffff, 2.0)
     scene.add(ambientLight)
 
-    val directionalLight = DirectionalLight(0xffffff, 2.0)
+    val directionalLight = DirectionalLight(0xffffff, 4.0)
     directionalLight.position.set(5, 10, 7.5)
     scene.add(directionalLight)
 
-    val directionalLight2 = DirectionalLight(0xffffff, 1.0)
-    directionalLight2.position.set(-5, -5, -5)
+    val directionalLight2 = DirectionalLight(0xffffff, 3.0)
+    directionalLight2.position.set(-5, 0, -10)
     scene.add(directionalLight2)
 
-    val directionalLight3 = DirectionalLight(0xffffff, 1.5)
-    directionalLight3.position.set(0, 0, 10)
+    val directionalLight3 = DirectionalLight(0xffffff, 2.5)
+    directionalLight3.position.set(0, 15, 0)
     scene.add(directionalLight3)
+
+    val directionalLight4 = DirectionalLight(0xffffff, 2.0)
+    directionalLight4.position.set(15, 0, 0)
+    scene.add(directionalLight4)
+
+    val directionalLight5 = DirectionalLight(0xffffff, 2.0)
+    directionalLight5.position.set(-15, 0, 0)
+    scene.add(directionalLight5)
 
 
     // Renderer setup
@@ -122,9 +131,10 @@ fun setupLibraryGlftModel(
             }
         }
     }
+    val modelName = if (index == 0) "bookshelf" else "bookshelf2"
     val loader = GLTFLoader()
     loader.load(
-        "raw/bookshelf.glb",
+        "raw/$modelName.glb",
         { obj ->
             cleanupHandler()
             val box = Box3().setFromObject(obj.scene)
@@ -133,7 +143,7 @@ fun setupLibraryGlftModel(
 
             // Calculate scale to fit in view
             val maxDim = maxOf(size.x, size.y, size.z)
-            val scale = 15.0 / maxDim  // Adjust this value to make model larger/smaller
+            val scale = 8.0 / maxDim  // Adjust this value to make model larger/smaller
 
             // Apply transformations to the scene
             obj.scene.asDynamic().position.x = -center.x * scale
