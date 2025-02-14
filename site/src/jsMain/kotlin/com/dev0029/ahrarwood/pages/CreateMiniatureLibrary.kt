@@ -102,7 +102,7 @@ fun CreateMiniatureLibraryPage(
     val removedItemIdList = remember { mutableStateOf< List<String>>(emptyList()) }
     val width = if (breakpoint.isMobileCompatible()) 360.0 else 1080.0
     val height = if (breakpoint.isMobileCompatible()) 220.0 else 690.0
-    val currentIndex = remember { mutableStateOf(if (modelQuery == "1") 1 else 0) }
+    val currentIndex = remember { mutableStateOf(if (modelQuery == "1") 1 else 1) }
     val colorIndex = remember { mutableStateOf(0) }
     var textureExterior = remember { mutableStateOf<Texture?>(null) }
     var textureInterior = remember { mutableStateOf<Texture?>(null) }
