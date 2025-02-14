@@ -6,7 +6,7 @@
     <string name="contact">Contact</string>
     <string name="book_stands">Book stand</string>
     <string name="search">Search</string>
-    <string name="create_library">Create library</string>
+    <string name="create_library">Bookshelf</string>
 
     <!-- Footer -->
     <string name="footer_author">Copyright 2025 dev0029</string>

@@ -360,7 +360,7 @@ fun BookStands(
                         classes(ModelStyles.modelContainer)
                         id("triangle-container")
                         style {
-                              border(1.px, LineStyle.Solid,rgb(200,200,200))
+                             // border(1.px, LineStyle.Solid,rgb(200,200,200))
                         }
                     }) {
                         LaunchedEffect(Unit) {
