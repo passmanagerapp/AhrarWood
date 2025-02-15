@@ -5,15 +5,19 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import com.dev0029.ahrarwood.base.SharedViewModel
 import com.dev0029.ahrarwood.components.layouts.SearchView
 import com.dev0029.ahrarwood.components.sections.home.HomeHeader
 import com.dev0029.ahrarwood.components.widgets.BoxColor
 import com.dev0029.ahrarwood.components.widgets.TwoWeightText
+import com.dev0029.ahrarwood.constants.Constants
 import com.dev0029.ahrarwood.constants.PageRoutes
 import com.dev0029.ahrarwood.enums.SearchViewType
 import com.dev0029.ahrarwood.extensions.isMobileCompatible
 import com.dev0029.ahrarwood.extensions.primaryColor
+import com.dev0029.ahrarwood.extensions.secondaryColor
 import com.dev0029.ahrarwood.models.WoodPaint
+import com.dev0029.ahrarwood.network.firebase.Analytics
 import com.dev0029.ahrarwood.utils.Utils
 import com.dev0029.ahrarwood.utils.threedmodel.FontLoader
 import com.dev0029.ahrarwood.utils.threedmodel.Mesh
@@ -46,15 +50,20 @@ import com.varabyte.kobweb.compose.ui.modifiers.gap
 import com.varabyte.kobweb.compose.ui.modifiers.height
 import com.varabyte.kobweb.compose.ui.modifiers.left
 import com.varabyte.kobweb.compose.ui.modifiers.margin
+import com.varabyte.kobweb.compose.ui.modifiers.onMouseLeave
+import com.varabyte.kobweb.compose.ui.modifiers.onMouseOver
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.compose.ui.modifiers.position
 import com.varabyte.kobweb.compose.ui.modifiers.size
+import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.Page
+import com.varabyte.kobweb.silk.components.forms.Button
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import kotlinx.browser.document
+import kotlinx.browser.window
 import org.jetbrains.compose.web.css.Color
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.Position
@@ -63,6 +72,8 @@ import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.rgb
 import org.jetbrains.compose.web.dom.Div
+import org.w3c.dom.HTMLElement
+import kotlin.random.Random
 
 @Page
 @Composable
@@ -120,6 +131,7 @@ fun BookStands(
                         onSearchTextChange = {searchText.value =it},
                         onSearchExpanded = { isSearchExpanded.value = !isSearchExpanded.value},
                         onSubmit = { search ->
+                            Analytics.logEvent("pageEvent:bookstand:personalization")
                             scene.value?.children?.find { it.asDynamic().userData.id == 1234 }?.let {
                                 scene.value?.remove(it)
                             }
@@ -378,6 +390,52 @@ fun BookStands(
                 }
 
 
+            }
+
+            Button(
+                onClick = {
+                    val variation1 = if (searchText.value.isEmpty()) "4491790444" else "4491790442"
+                    val url = Constants.ETSY_TRIANGLE_URL.replace("{variation0}","${Utils.getTriangleVariationNumber(currentIndex.value)}")
+                        .replace("{variation1}",variation1)
+                    Analytics.logEvent("pageEvent:bookstand:orderButton")
+                    window.open(url, target = "_blank")
+                },
+                modifier = Modifier.backgroundColor(secondaryColor)
+                    .padding(topBottom = 12.px, leftRight = 24.px)
+                    .margin(topBottom = if (breakpoint.isMobileCompatible()) 32.px else 64.px, leftRight = 32.px)
+                    .borderRadius(25.px)
+                    .cursor(Cursor.Pointer)
+                    .align(Alignment.BottomEnd)
+                    // Hover effect
+                    .styleModifier {
+                        property("transition", "all 0.3s ease")
+                        property("box-shadow", "0 4px 8px rgba(0, 0, 0, 0.1)")
+                        property("transform", "scale(1)")
+                    }
+                    // Hover states
+                    .onMouseOver {
+                        (it.target as? HTMLElement)?.style?.apply {
+                            transform = "scale(1.05)"
+                            boxShadow = "0 6px 12px rgba(0, 0, 0, 0.15)"
+                        }
+                    }
+                    .onMouseLeave {
+                        (it.target as? HTMLElement)?.style?.apply {
+                            transform = "scale(1)"
+                            boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)"
+                        }
+                    },
+                enabled =  true
+            ) {
+                SpanText(
+                    text = Res.string.section2_button,
+                    modifier = Modifier
+                        .color(Colors.SaddleBrown)
+                        .fontSize(if (!breakpoint.isMobileCompatible()) 18.px else 12.px)
+                        .styleModifier {
+                            property("font-weight", "600")
+                        }
+                )
             }
 
             Row(

@@ -23,6 +23,7 @@ import com.dev0029.ahrarwood.models.BookDialogModel
 import com.dev0029.ahrarwood.models.BookListModel
 import com.dev0029.ahrarwood.models.WoodPaint
 import com.dev0029.ahrarwood.network.ApiService
+import com.dev0029.ahrarwood.network.firebase.Analytics
 import com.dev0029.ahrarwood.network.model.SearchResult
 import com.dev0029.ahrarwood.utils.Utils
 import com.dev0029.ahrarwood.utils.threedmodel.MeshPhysicalMaterial
@@ -150,6 +151,7 @@ fun CreateMiniatureBookshelfPage(
                         onSearchTextChange = {searchText.value =it},
                         onSearchExpanded = { isSearchExpanded.value = !isSearchExpanded.value},
                         onSubmit = { search ->
+                            Analytics.logEvent("pageEvent:bookshelf:searchAuthor")
                             response.value = null
                             isLoading.value = true
                             scope.launch {
@@ -238,6 +240,7 @@ fun CreateMiniatureBookshelfPage(
                             index = 0,
                             selectedIndex = colorIndex.value,
                             onClick = {
+                                Analytics.logEvent("pageEvent:bookshelf:color0")
                                 if (scene.value == null)
                                     return@DoubleBoxColor
                                 colorIndex.value = it
@@ -263,6 +266,9 @@ fun CreateMiniatureBookshelfPage(
                             index = 1,
                             selectedIndex = colorIndex.value,
                             onClick = {
+                                Analytics.logEvent("pageEvent:bookshelf:color1")
+                                if (scene.value == null)
+                                    return@DoubleBoxColor
                                 colorIndex.value = it
                                 val materialExterior = scene.value?.getObjectByName("wood_white")?.material as MeshPhysicalMaterial
                                 val materialInterior = scene.value?.getObjectByName("wood_brown")?.material as MeshPhysicalMaterial
@@ -287,6 +293,9 @@ fun CreateMiniatureBookshelfPage(
                             index = 2,
                             selectedIndex = colorIndex.value,
                             onClick = {
+                                Analytics.logEvent("pageEvent:bookshelf:color2")
+                                if (scene.value == null)
+                                    return@DoubleBoxColor
                                 colorIndex.value = it
                                 val materialExterior = scene.value?.getObjectByName("wood_white")?.material as MeshPhysicalMaterial
                                 val materialInterior = scene.value?.getObjectByName("wood_brown")?.material as MeshPhysicalMaterial
@@ -310,6 +319,9 @@ fun CreateMiniatureBookshelfPage(
                             index = 3,
                             selectedIndex = colorIndex.value,
                             onClick = {
+                                Analytics.logEvent("pageEvent:bookshelf:color3")
+                                if (scene.value == null)
+                                    return@DoubleBoxColor
                                 colorIndex.value = it
                                 val materialExterior = scene.value?.getObjectByName("wood_white")?.material as MeshPhysicalMaterial
                                 val materialInterior = scene.value?.getObjectByName("wood_brown")?.material as MeshPhysicalMaterial
@@ -333,6 +345,9 @@ fun CreateMiniatureBookshelfPage(
                             index = 4,
                             selectedIndex = colorIndex.value,
                             onClick = {
+                                Analytics.logEvent("pageEvent:bookshelf:color4")
+                                if (scene.value == null)
+                                    return@DoubleBoxColor
                                 colorIndex.value = it
                                 val materialExterior = scene.value?.getObjectByName("wood_white")?.material as MeshPhysicalMaterial
                                 val materialInterior = scene.value?.getObjectByName("wood_brown")?.material as MeshPhysicalMaterial
@@ -399,6 +414,7 @@ fun CreateMiniatureBookshelfPage(
 
             Button(
                 onClick = {
+                    Analytics.logEvent("pageEvent:bookshelf:orderButton${currentIndex.value}")
                     if (currentIndex.value == 0) {
                         val uniqueId = Random.nextInt(100000,999999)
                         SharedViewModel.setItems(Pair("AW-$uniqueId",selectedBooks.value))

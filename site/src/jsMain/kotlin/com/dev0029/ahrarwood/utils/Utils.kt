@@ -101,4 +101,18 @@ object Utils {
         }
     }
 
+    fun getTriangleVariationNumber(index: Int) : Long {
+        return when(index) {
+            0 -> 5011451553
+            1 -> 3710021522
+            2 -> 3668407087
+            3 -> 3652081684
+            4 -> 3652081658
+            5 -> 3668407089
+            6 -> 4483241461
+            7 -> 3652081686
+            else  -> 5011451553
+        }
+    }
+
 }

@@ -3,6 +3,7 @@ package com.dev0029.ahrarwood.components.widgets
 import androidx.compose.runtime.Composable
 import com.dev0029.ahrarwood.extensions.isMobileCompatible
 import com.dev0029.ahrarwood.models.WoodPaint
+import com.dev0029.ahrarwood.network.firebase.Analytics
 import com.varabyte.kobweb.browser.dom.ElementTarget
 import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -52,6 +53,7 @@ fun BoxColor(
             }
             .border(border, LineStyle.Solid, if (index == selectedIndex) borderColor else Colors.Transparent)
             .onClick {
+                Analytics.logEvent("pageEvent:bookstand:color$index")
                 onClick(index)
             }
             .onMouseOver {

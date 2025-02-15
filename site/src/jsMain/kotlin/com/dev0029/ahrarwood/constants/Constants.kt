@@ -5,6 +5,7 @@ object Constants {
     const val ETSY_SHOP_URL = "https://www.etsy.com/shop/AhrarWood"
     const val ETSY_MINIBOOK_URL = "https://ahrarwood.etsy.com/listing/1813340574?variation0=5073495747"
     const val ETSY_MINIBOOK2_URL = "https://ahrarwood.etsy.com/listing/1821311646?variation1="
+    const val ETSY_TRIANGLE_URL = "https://ahrarwood.etsy.com/listing/1508371504?variation0={variation0}&variation1={variation1}"
     const val INSTAGRAM_SHOP_URL = "https://www.instagram.com/ahrarwood"
     const val YOUTUBE_SHOP_URL = "https://www.youtube.com/@ahrarwood"
     const val PINTEREST_SHOP_URL = "https://tr.pinterest.com/ahrarwoodd/"
