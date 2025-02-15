@@ -151,6 +151,12 @@
     };
     if(document.readyState==="complete"){ onLoad() }
     else{ window.addEventListener("load", onLoad) }
+    
+    document.addEventListener("click", function(event) {
+    if (!event.target.closest(".chatbase-container")) {
+        window.chatbase('close');
+    }
+});
 })();</script>
   <script src="https://www.chatbase.co/embed.min.js" id="UjzdooxNTXGu23uQE1zEY"></script>
  </body>
