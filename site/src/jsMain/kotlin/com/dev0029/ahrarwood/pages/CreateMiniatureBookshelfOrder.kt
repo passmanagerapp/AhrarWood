@@ -52,6 +52,7 @@ import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.icons.fa.FaCopy
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
+import kotlinx.browser.document
 import kotlinx.browser.window
 import kotlinx.coroutines.flow.onEach
 import org.jetbrains.compose.web.css.px
@@ -63,6 +64,7 @@ import org.w3c.dom.HTMLElement
 fun CreateMiniatureBookshelfOrderPage(
     modifier: Modifier = Modifier
 ) {
+    document.title = Res.string.title_bookshelf_order
     val ctx = rememberPageContext()
     val breakpoint = rememberBreakpoint()
     var items = remember { mutableStateOf<List<BookListModel>>(emptyList()) }

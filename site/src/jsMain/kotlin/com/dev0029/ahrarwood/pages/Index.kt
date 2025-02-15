@@ -23,6 +23,7 @@ import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import com.dev0029.ahrarwood.components.sections.home.HomeSection
+import kotlinx.browser.document
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.vh
@@ -63,6 +64,7 @@ private fun GridCell(color: Color, row: Int, column: Int, width: Int? = null, he
 @Page
 @Composable
 fun HomePage(modifier: Modifier = Modifier) {
+    document.title = Res.string.title_home
     val ctx = rememberPageContext()
     val breakpoint = rememberBreakpoint()
     Column(

@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Title -->
+    <string name="title_home">AhrarWood | El yapımı kitap standı, kitap oyunlar için hediye</string>
+    <string name="title_book_stands">El yapımı kitap standı modelleri | AhrarWood</string>
+    <string name="title_bookshelf">Mini kitaplık kitap listeni oluştur | AhrarWood</string>
+    <string name="title_bookshelf_order">Mini kitaplığını Etsy'de sipariş ver | AhrarWood</string>
+    <string name="title_contact">İletişime geç | AhrarWood</string>
+
     <!-- Header -->
     <string name="home">Anasayfa</string>
     <string name="about">Hakkında</string>

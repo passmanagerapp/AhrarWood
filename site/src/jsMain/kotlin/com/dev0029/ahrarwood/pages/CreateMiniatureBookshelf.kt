@@ -82,6 +82,7 @@ import kotlin.random.Random
 fun CreateMiniatureBookshelfPage(
     modifier: Modifier = Modifier
 ) {
+    document.title = Res.string.title_bookshelf
     val ctx = rememberPageContext()
     val modelQuery = ctx.route.params["model"]
     val breakpoint = rememberBreakpoint()

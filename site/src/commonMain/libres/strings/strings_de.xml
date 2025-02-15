@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Title -->
+    <string name="title_home">AhrarWood | Handgefertigte Buchständer, Geschenk für Leser, Geschenk für Buchliebhaber</string>
+    <string name="title_book_stands">Handgefertigte Buchständer-Modelle | AhrarWood</string>
+    <string name="title_bookshelf">Erstelle eine Mini-Bücherregal-Buchliste | AhrarWood</string>
+    <string name="title_bookshelf_order">Bestelle ein Mini-Bücherregal bei Etsy | AhrarWood</string>
+    <string name="title_contact">Kontaktiere uns | AhrarWood</string>
+
     <!-- Header -->
     <string name="home">Heim</string>
     <string name="about">Um</string>

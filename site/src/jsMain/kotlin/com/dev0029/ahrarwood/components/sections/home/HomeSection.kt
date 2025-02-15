@@ -73,12 +73,12 @@ fun HomeSection(
 ) {
     val ctx = rememberPageContext()
     val banners = listOf<Section>(
+        Section(title = Res.string.section3_title,Res.string.section3_desc,
+            buttonTitle = Res.string.section3_button, navPath = PageRoutes.CREATE_MINIATURE_LIBRARY, imagePath = ImagePaths.SECTION3),
         Section(title = Res.string.section1_title, description = Res.string.section1_desc,
             buttonTitle = Res.string.section1_button, navPath = PageRoutes.PACKAGING, imagePath = ImagePaths.SECTION1),
         Section(title = Res.string.section2_title,Res.string.section2_desc,
             buttonTitle = Res.string.section2_button, navPath = null, imagePath = ImagePaths.SECTION2),
-        Section(title = Res.string.section3_title,Res.string.section3_desc,
-            buttonTitle = Res.string.section3_button, navPath = PageRoutes.CREATE_MINIATURE_LIBRARY, imagePath = ImagePaths.SECTION3),
     )
     val currentIndex = remember { mutableStateOf(0) }
     val containerId = "sectionContainer"

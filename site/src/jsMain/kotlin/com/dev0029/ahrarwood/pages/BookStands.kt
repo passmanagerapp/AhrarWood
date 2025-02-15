@@ -54,6 +54,7 @@ import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
+import kotlinx.browser.document
 import org.jetbrains.compose.web.css.Color
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.Position
@@ -68,6 +69,7 @@ import org.jetbrains.compose.web.dom.Div
 fun BookStands(
     modifier: Modifier = Modifier
 ) {
+    document.title = Res.string.title_book_stands
     val breakpoint = rememberBreakpoint()
     var scene = remember { mutableStateOf<Scene?>(null) }
     var texture = remember { mutableStateOf<Texture?>(null) }
