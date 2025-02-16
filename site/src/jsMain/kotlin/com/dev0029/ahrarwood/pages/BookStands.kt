@@ -194,7 +194,7 @@ fun BookStands(
                             if (scene.value == null)
                                 return@BoxColor
                             currentIndex.value = it
-                            val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
+                            val material = scene.value?.getObjectByName("Box")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
                                 texture.value = material.map
                             }
@@ -213,7 +213,7 @@ fun BookStands(
                             if (scene.value == null)
                                 return@BoxColor
                             currentIndex.value = it
-                            val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
+                            val material = scene.value?.getObjectByName("Box")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
                                 texture.value = material.map
                             }
@@ -232,7 +232,7 @@ fun BookStands(
                             if (scene.value == null)
                                 return@BoxColor
                             currentIndex.value = it
-                            val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
+                            val material = scene.value?.getObjectByName("Box")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
                                 texture.value = material.map
                             }
@@ -251,7 +251,7 @@ fun BookStands(
                             if (scene.value == null)
                                 return@BoxColor
                             currentIndex.value = it
-                            val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
+                            val material = scene.value?.getObjectByName("Box")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
                                 texture.value = material.map
                             }
@@ -281,7 +281,7 @@ fun BookStands(
                             if (scene.value == null)
                                 return@BoxColor
                             currentIndex.value = it
-                            val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
+                            val material = scene.value?.getObjectByName("Box")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
                                 texture.value = material.map
                             }
@@ -300,7 +300,7 @@ fun BookStands(
                             if (scene.value == null)
                                 return@BoxColor
                             currentIndex.value = it
-                            val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
+                            val material = scene.value?.getObjectByName("Box")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
                                 texture.value = material.map
                             }
@@ -319,7 +319,7 @@ fun BookStands(
                             if (scene.value == null)
                                 return@BoxColor
                             currentIndex.value = it
-                            val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
+                            val material = scene.value?.getObjectByName("Box")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
                                 texture.value = material.map
                             }
@@ -343,7 +343,7 @@ fun BookStands(
                             material.asDynamic().map = textureLoader.load("bookfront2.png",{})
                             material.asDynamic().needsUpdate = true*/
                             currentIndex.value = it
-                            val material = scene.value?.getObjectByName("BookShelf")?.material as MeshPhysicalMaterial
+                            val material = scene.value?.getObjectByName("Box")?.material as MeshPhysicalMaterial
                             if (texture.value == null) {
                                 texture.value = material.map
                             }
@@ -353,12 +353,6 @@ fun BookStands(
                         }
                     )
                 }
-                SpanText(
-                    text = Res.string.color_option,
-                    modifier = modifier
-                        .margin(top = 6.px)
-                        .fontSize(FontSize.Small)
-                )
             }
 
             Box(
