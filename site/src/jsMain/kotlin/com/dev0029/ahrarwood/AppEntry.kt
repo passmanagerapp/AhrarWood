@@ -2,6 +2,7 @@ package com.dev0029.ahrarwood
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import com.dev0029.ahrarwood.network.firebase.ChatbaseChatbot
 import com.dev0029.ahrarwood.network.firebase.FirebaseConfig
 import com.varabyte.kobweb.compose.css.ScrollBehavior
 import com.varabyte.kobweb.compose.ui.modifiers.minHeight
@@ -36,7 +37,7 @@ fun initColorMode(ctx: InitSilkContext) {
 @App
 @Composable
 fun AppEntry(content: @Composable () -> Unit) {
-    println("welcome")
+    ChatbaseChatbot()
     LaunchedEffect(Unit) {
         initFirebase()
     }

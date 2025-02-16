@@ -30,7 +30,6 @@ fun AboutExternalIcon(
     iconPath: String,
     externalUrl: String
 ) {
-    val isDark = ColorMode.current.isDark
     Image(src = iconPath, alt = iconPath.substringBefore(".png"),
         modifier = modifier
             .size(if (breakpoint >= Breakpoint.MD) 24.px else 16.px)

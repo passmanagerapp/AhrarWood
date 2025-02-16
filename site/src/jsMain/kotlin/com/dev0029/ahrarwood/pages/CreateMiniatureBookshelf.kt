@@ -65,6 +65,7 @@ import com.varabyte.kobweb.silk.components.forms.Button
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
+import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import kotlinx.browser.document
 import kotlinx.browser.window
 import kotlinx.coroutines.launch
@@ -103,6 +104,7 @@ fun CreateMiniatureBookshelfPage(
     val colorIndex = remember { mutableStateOf(0) }
     var textureExterior = remember { mutableStateOf<Texture?>(null) }
     var textureInterior = remember { mutableStateOf<Texture?>(null) }
+    val isDark = ColorMode.current.isDark
 
     DisposableEffect(Unit) {
         onDispose {
@@ -470,10 +472,12 @@ fun CreateMiniatureBookshelfPage(
                     .gap(if (breakpoint >= Breakpoint.MD) 12.px else 8.px)
             ) {
                 repeat(2) { index ->
+                    val selectedBgColor = if (isDark) Colors.White else Colors.Black
+                    val unselectedBgColor = if (isDark) Colors.LightSlateGray else Colors.DarkGray
                     Div(
                         attrs = Modifier
                             .size(if (breakpoint >= Breakpoint.MD) 12.px else 8.px)
-                            .backgroundColor(if (index == 0) Colors.White else Colors.LightGray)
+                            .backgroundColor(if (currentIndex.value == index) selectedBgColor else unselectedBgColor)
                             .borderRadius(50.percent)
                             .cursor(Cursor.Pointer)
                             .toAttrs({

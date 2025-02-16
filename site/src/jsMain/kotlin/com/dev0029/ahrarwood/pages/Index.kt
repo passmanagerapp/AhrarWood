@@ -66,7 +66,6 @@ private fun GridCell(color: Color, row: Int, column: Int, width: Int? = null, he
 @Composable
 fun HomePage(modifier: Modifier = Modifier) {
     document.title = Res.string.title_home
-    ChatbaseChatbot()
     val ctx = rememberPageContext()
     val breakpoint = rememberBreakpoint()
     Column(

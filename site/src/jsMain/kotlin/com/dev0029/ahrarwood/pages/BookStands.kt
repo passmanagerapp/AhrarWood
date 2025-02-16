@@ -438,30 +438,6 @@ fun BookStands(
                 )
             }
 
-            Row(
-                modifier = Modifier
-                    .align(Alignment.BottomCenter)
-                    .position(Position.Absolute)
-                    .bottom(if (breakpoint >= Breakpoint.MD) 16.px else 8.px)
-                    .left(if (breakpoint >= Breakpoint.MD) 24.px else 12.px)
-                    .gap(if (breakpoint >= Breakpoint.MD) 12.px else 8.px)
-            ) {
-                repeat(2) { index ->
-                    Div(
-                        attrs = Modifier
-                            .size(if (breakpoint >= Breakpoint.MD) 12.px else 8.px)
-                            .backgroundColor(if (index == 0) Colors.White else Colors.LightGray)
-                            .borderRadius(50.percent)
-                            .cursor(Cursor.Pointer)
-                            .toAttrs({
-                                onClick {
-
-                                }
-                            })
-                    )
-                }
-            }
-
         }
     }
 }
