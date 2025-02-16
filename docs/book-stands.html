@@ -98,14 +98,35 @@ font-weight: bold;">
        <div class="kobweb-row kobweb-arrange-center kobweb-align-center-vert">
         <span class="silk-span-text" style="color: rgb(139, 69, 19); font-size: 18px; font-weight: 600;">Order now</span>
        </div></button>
-      <div class="kobweb-align-bottom-center-self kobweb-row kobweb-arrange-start kobweb-align-top" style="position: absolute; bottom: 16px; left: 24px; gap: 12px;">
-       <div style="width: 12px; height: 12px; background-color: rgb(255, 255, 255); border-radius: 50%; cursor: pointer;"></div>
-       <div style="width: 12px; height: 12px; background-color: rgb(211, 211, 211); border-radius: 50%; cursor: pointer;"></div>
-      </div>
      </div>
     </div>
    </div>
   </div>
   <script src="/ahrarwood.js"></script>
+  <script>(function(){
+    if(!window.chatbase || window.chatbase("getState") !== "initialized"){
+        window.chatbase=(...arguments)=>{
+            if(!window.chatbase.q){ window.chatbase.q=[] }
+            window.chatbase.q.push(arguments)
+        };
+        window.chatbase=new Proxy(window.chatbase,{
+            get(target, prop){
+                if(prop==="q"){ return target.q }
+                return(...args)=>target(prop,...args)
+            }
+        });
+    }
+    const onLoad=function(){
+        const script=document.createElement("script");
+        script.src="https://www.chatbase.co/embed.min.js";
+        script.id="UjzdooxNTXGu23uQE1zEY";
+        script.domain="www.chatbase.co";
+        document.body.appendChild(script);
+    };
+    if(document.readyState==="complete"){ onLoad() }
+    else{ window.addEventListener("load", onLoad) }
+ 
+})();</script>
+  <script src="https://www.chatbase.co/embed.min.js" id="UjzdooxNTXGu23uQE1zEY"></script>
  </body>
 </html>

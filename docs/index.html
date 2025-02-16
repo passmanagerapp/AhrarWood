@@ -151,15 +151,7 @@
     };
     if(document.readyState==="complete"){ onLoad() }
     else{ window.addEventListener("load", onLoad) }
-    
-    document.addEventListener("click", function(event) {
-const chatContainer = document.querySelector(".chatbase-container"); 
-const chatIcon = document.querySelector("#UjzdooxNTXGu23uQE1zEY");
-
-if (chatContainer && !chatContainer.contains(event.target) && chatIcon && !chatIcon.contains(event.target)) { 
-    window.chatbase('close'); 
-}
-});
+ 
 })();</script>
   <script src="https://www.chatbase.co/embed.min.js" id="UjzdooxNTXGu23uQE1zEY"></script>
  </body>
