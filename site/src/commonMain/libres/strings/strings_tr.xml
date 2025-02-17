@@ -31,7 +31,6 @@
     <string name="section3_button">Şimdi başla</string>
     <string name="section3_desc">Favori kitap listeni oluştur, bizde sana minyatür kitaplığını oluşturalım</string>
 
-
     <!-- Shipping -->
     <string name="shipping_title">Kargo</string>
     <string name="shipping_desc1">Hızlı ve özenli kargolama</string>
@@ -85,4 +84,12 @@
     <string name="enter_personalization">İsim girin</string>
     <string name="color_option">*Renk seçeneği yakında sizlerle..</string>
     <string name="triangle_stand">Üçgen kitap standı</string>
+
+    <!-- Tour guide -->
+    <string name="choose_color">Renk seçin</string>
+    <string name="choose_color_desc">Öncelikle bu seçenekler arasından tercih ettiğin ahşap rengini seç.</string>
+    <string name="add_personalization">Kişiselleştirme ekle</string>
+    <string name="add_personalization_desc">Ahşaba kazınacak kişisel metnini ekle.</string>
+    <string name="place_order">Siparişi tamamla</string>
+    <string name="place_order_desc">Hazır olduğunda, siparişini Etsy'de tamamlamak için buraya tıkla.</string>
 </resources>

@@ -24,6 +24,7 @@ import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import com.dev0029.ahrarwood.components.sections.home.HomeSection
 import com.dev0029.ahrarwood.network.firebase.ChatbaseChatbot
+import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import kotlinx.browser.document
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
@@ -68,6 +69,7 @@ fun HomePage(modifier: Modifier = Modifier) {
     document.title = Res.string.title_home
     val ctx = rememberPageContext()
     val breakpoint = rememberBreakpoint()
+    val isDarkMode = ColorMode.current.isDark
     Column(
         modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally

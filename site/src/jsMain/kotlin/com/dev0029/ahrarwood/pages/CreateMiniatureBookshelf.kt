@@ -9,6 +9,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import com.dev0029.ahrarwood.base.SharedViewModel
 import com.dev0029.ahrarwood.components.layouts.Dialog
 import com.dev0029.ahrarwood.components.layouts.SearchView
+import com.dev0029.ahrarwood.components.sections.TourGuide
+import com.dev0029.ahrarwood.components.sections.TourStep
 import com.dev0029.ahrarwood.components.sections.home.HomeHeader
 import com.dev0029.ahrarwood.components.widgets.DoubleBoxColor
 import com.dev0029.ahrarwood.components.widgets.TwoWeightText
@@ -50,6 +52,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.fontSize
 import com.varabyte.kobweb.compose.ui.modifiers.fontWeight
 import com.varabyte.kobweb.compose.ui.modifiers.gap
 import com.varabyte.kobweb.compose.ui.modifiers.height
+import com.varabyte.kobweb.compose.ui.modifiers.id
 import com.varabyte.kobweb.compose.ui.modifiers.left
 import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.onMouseLeave
@@ -68,6 +71,7 @@ import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import kotlinx.browser.document
 import kotlinx.browser.window
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.web.css.Color
 import org.jetbrains.compose.web.css.Position
@@ -105,6 +109,32 @@ fun CreateMiniatureBookshelfPage(
     var textureExterior = remember { mutableStateOf<Texture?>(null) }
     var textureInterior = remember { mutableStateOf<Texture?>(null) }
     val isDark = ColorMode.current.isDark
+    var showTour = remember { mutableStateOf(false) }
+
+    LaunchedEffect(Unit) {
+        delay(250)
+        showTour.value = true
+    }
+    val tourSteps = listOf(
+        TourStep(
+            target = "model",
+            title = "Select model",
+            description = "Click the dot button and see other models",
+            position = com.dev0029.ahrarwood.components.sections.Position.Top
+        ),
+        TourStep(
+            target = "color-picker",
+            title = Res.string.choose_color,
+            description = Res.string.choose_color_desc,
+            position = com.dev0029.ahrarwood.components.sections.Position.Bottom
+        ),
+        TourStep(
+            target = "order-button",
+            title = Res.string.place_order,
+            description = Res.string.place_order_desc,
+            position = com.dev0029.ahrarwood.components.sections.Position.Top
+        )
+    )
 
     DisposableEffect(Unit) {
         onDispose {
@@ -194,6 +224,7 @@ fun CreateMiniatureBookshelfPage(
             }
             Column(
                 modifier = modifier
+                    .id("color-picker")
                     .align(if (breakpoint.isMobileCompatible()) Alignment.TopCenter else Alignment.CenterStart)
                     .margin(
                         top = if (!breakpoint.isMobileCompatible()) 24.px else 100.px,
@@ -425,11 +456,15 @@ fun CreateMiniatureBookshelfPage(
                         window.open("${Constants.ETSY_MINIBOOK2_URL}${Utils.getVariationNumber(colorIndex.value)}", target = "_blank")
                     }
                 },
-                modifier = Modifier.backgroundColor(secondaryColor)
+                modifier = Modifier
+                    .id("order-button")
+                    .backgroundColor(secondaryColor)
                     .padding(topBottom = 12.px, leftRight = 24.px)
                     .margin(topBottom = if (breakpoint.isMobileCompatible()) 32.px else 64.px, leftRight = 32.px)
                     .borderRadius(25.px)
-                    .cursor(Cursor.Pointer)
+                    .cursor(if (currentIndex.value == 0) {
+                        if (selectedBooks.value.size == 60) Cursor.Pointer else Cursor.NotAllowed
+                    } else Cursor.Pointer)
                     .align(Alignment.BottomEnd)
                     // Hover effect
                     .styleModifier {
@@ -465,6 +500,7 @@ fun CreateMiniatureBookshelfPage(
 
             Row(
                 modifier = Modifier
+                    .id("model")
                     .align(Alignment.BottomCenter)
                     .position(Position.Absolute)
                     .bottom(if (breakpoint >= Breakpoint.MD) 16.px else 8.px)
@@ -512,6 +548,13 @@ fun CreateMiniatureBookshelfPage(
             )
         }
     }
+
+    if (showTour.value)
+        TourGuide(
+            steps = tourSteps,
+            id = Constants.HAS_SEEN_TOUR_BOOKSHELF,
+            onComplete = {}
+        )
 
 }
 object ModelStyles : StyleSheet() {

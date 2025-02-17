@@ -7,6 +7,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import com.dev0029.ahrarwood.base.SharedViewModel
 import com.dev0029.ahrarwood.components.layouts.SearchView
+import com.dev0029.ahrarwood.components.sections.TourGuide
+import com.dev0029.ahrarwood.components.sections.TourStep
 import com.dev0029.ahrarwood.components.sections.home.HomeHeader
 import com.dev0029.ahrarwood.components.widgets.BoxColor
 import com.dev0029.ahrarwood.components.widgets.TwoWeightText
@@ -48,6 +50,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.fontSize
 import com.varabyte.kobweb.compose.ui.modifiers.fontWeight
 import com.varabyte.kobweb.compose.ui.modifiers.gap
 import com.varabyte.kobweb.compose.ui.modifiers.height
+import com.varabyte.kobweb.compose.ui.modifiers.id
 import com.varabyte.kobweb.compose.ui.modifiers.left
 import com.varabyte.kobweb.compose.ui.modifiers.margin
 import com.varabyte.kobweb.compose.ui.modifiers.onMouseLeave
@@ -64,6 +67,7 @@ import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import kotlinx.browser.document
 import kotlinx.browser.window
+import kotlinx.coroutines.delay
 import org.jetbrains.compose.web.css.Color
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.Position
@@ -88,6 +92,32 @@ fun BookStands(
     var searchText = remember { mutableStateOf("") }
     var isSearchExpanded = remember { mutableStateOf(true) }
     val scope = rememberCoroutineScope()
+    var showTour = remember { mutableStateOf(false) }
+
+    LaunchedEffect(Unit) {
+        delay(250)
+        showTour.value = true
+    }
+    val tourSteps = listOf(
+        TourStep(
+            target = "color-picker",
+            title = Res.string.choose_color,
+            description = Res.string.choose_color_desc,
+            position = com.dev0029.ahrarwood.components.sections.Position.Bottom
+        ),
+        TourStep(
+            target = "search-bar",
+            title = Res.string.add_personalization,
+            description = Res.string.add_personalization_desc,
+            position = com.dev0029.ahrarwood.components.sections.Position.Bottom
+        ),
+        TourStep(
+            target = "order-button",
+            title = Res.string.place_order,
+            description = Res.string.place_order_desc,
+            position = com.dev0029.ahrarwood.components.sections.Position.Top
+        )
+    )
     Column(
         modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.Start
@@ -122,7 +152,7 @@ fun BookStands(
                     .align(if (!breakpoint.isMobileCompatible()) Alignment.CenterEnd else Alignment.BottomEnd),
                     horizontalAlignment = Alignment.End) {
                     SearchView(
-                        modifier = modifier,
+                        modifier = modifier.id("search-bar"),
                         type = SearchViewType.SUBMIT,
                         breakpoint = breakpoint,
                         scope = scope,
@@ -167,6 +197,7 @@ fun BookStands(
             }
             Column(
                 modifier = modifier
+                    .id("color-picker")
                     .align(if (breakpoint.isMobileCompatible()) Alignment.TopCenter else Alignment.CenterStart)
                     .margin(
                         top = if (!breakpoint.isMobileCompatible()) 24.px else 100.px,
@@ -394,7 +425,8 @@ fun BookStands(
                     Analytics.logEvent("pageEvent:bookstand:orderButton")
                     window.open(url, target = "_blank")
                 },
-                modifier = Modifier.backgroundColor(secondaryColor)
+                modifier = Modifier
+                    .id("order-button").backgroundColor(secondaryColor)
                     .padding(topBottom = 12.px, leftRight = 24.px)
                     .margin(topBottom = if (breakpoint.isMobileCompatible()) 32.px else 64.px, leftRight = 32.px)
                     .borderRadius(25.px)
@@ -434,4 +466,10 @@ fun BookStands(
 
         }
     }
+    if (showTour.value)
+    TourGuide(
+        steps = tourSteps,
+        id = Constants.HAS_SEEN_TOUR_STAND,
+        onComplete = {}
+    )
 }

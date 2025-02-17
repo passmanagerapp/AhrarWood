@@ -21,4 +21,5 @@ object ImagePaths {
     const val YOUTUBE= "youtube.png"
     const val PINTEREST= "pinterest.png"
     const val SUCCESS= "check.png"
+    const val PAINT= "paint.jpg"
 }

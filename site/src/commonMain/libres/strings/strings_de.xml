@@ -84,4 +84,12 @@
     <string name="enter_personalization">Personalisierung eingeben</string>
     <string name="color_option">*Farboption wird bald verfügbar sein..</string>
     <string name="triangle_stand">Dreieckiger Buchständer</string>
+
+    <!-- Tour guide -->
+    <string name="choose_color">Farbe wählen</string>
+    <string name="choose_color_desc">Beginnen Sie, indem Sie Ihre bevorzugte Holzfarbe aus diesen Optionen auswählen.</string>
+    <string name="add_personalization">Personalisierung hinzufügen</string>
+    <string name="add_personalization_desc">Fügen Sie Ihren personalisierten Text hinzu, der auf das Holz graviert werden soll.</string>
+    <string name="place_order">Bestellung aufgeben</string>
+    <string name="place_order_desc">Sobald Sie fertig sind, klicken Sie hier, um Ihre Bestellung auf Etsy abzuschließen.</string>
 </resources>

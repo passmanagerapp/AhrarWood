@@ -31,7 +31,6 @@
     <string name="section3_button">Create now</string>
     <string name="section3_desc">What is your favorite books, create a collection of your favorite book list and let use to produce your miniature library!</string>
 
-
     <!-- Shipping -->
     <string name="shipping_title">Shipping</string>
     <string name="shipping_desc1">Fast and free shipping</string>
@@ -85,4 +84,12 @@
     <string name="enter_personalization">Enter personalization</string>
     <string name="color_option">*Color option will be available soon..</string>
     <string name="triangle_stand">Triangle book stand</string>
+
+    <!-- Tour guide -->
+    <string name="choose_color">Choose color</string>
+    <string name="choose_color_desc">Start by selecting your preferred wood color from these options.</string>
+    <string name="add_personalization">Add personalization</string>
+    <string name="add_personalization_desc">Add your personalized text to be engraved onto the wood.</string>
+    <string name="place_order">Place order</string>
+    <string name="place_order_desc">Once you've finished, click here to complete your order at Etsy.</string>
 </resources>

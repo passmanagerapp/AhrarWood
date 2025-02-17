@@ -17,4 +17,6 @@ object Constants {
             "anxiety bookcase, anxiety book shelf, bookshelf decor, mini book shelf, book nook," +
             "gift for book lovers, book holder, book rest, wood book holder, book house"
 
+    const val HAS_SEEN_TOUR_STAND = "hasSeenBookStandTour"
+    const val HAS_SEEN_TOUR_BOOKSHELF = "hasSeenBookshelfTour"
 }

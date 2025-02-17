@@ -135,7 +135,6 @@ fun ContactContent(
                         .height(50.px)
                         .margin(bottom = 16.px)
                         .padding(16.px)
-                        .backgroundColor(Colors.White)
                         .borderRadius(4.px)
                         .border(1.px, LineStyle.Solid, rgb(200, 200, 200))
                 )
@@ -152,7 +151,6 @@ fun ContactContent(
                         .height(50.px)
                         .margin(bottom = 16.px)
                         .padding(16.px)
-                        .backgroundColor(Colors.White)
                         .borderRadius(4.px)
                         .border(1.px, LineStyle.Solid, rgb(200, 200, 200))
                 )
@@ -170,7 +168,6 @@ fun ContactContent(
                             height(180.px)
                             marginBottom(24.px)
                             padding(16.px)
-                            backgroundColor(Colors.White)
                             borderRadius(4.px)
                             border(1.px, LineStyle.Solid, rgb(200, 200, 200)
                             )
@@ -192,7 +189,7 @@ fun ContactContent(
                         .backgroundColor(if (title.value.isNotEmpty() && message.value.isNotEmpty()) rgb(67, 83, 52) else rgb(200, 200, 200))
                         .color(Colors.White)
                         .borderRadius(4.px)
-                        .cursor(Cursor.Pointer)
+                        .cursor(if (title.value.isNotEmpty() && message.value.isNotEmpty()) Cursor.Pointer else Cursor.NotAllowed)
                         .transition(Transition.of("background-color",300.ms)),
                     type = ButtonType.Submit,
                     enabled = title.value.isNotEmpty() && message.value.isNotEmpty()
