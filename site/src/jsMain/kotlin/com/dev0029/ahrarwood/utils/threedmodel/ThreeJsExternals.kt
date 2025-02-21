@@ -45,7 +45,11 @@ open external class Object3D {
     var name: String
     var material: Material
     val children: Array<Object3D>
+    val parent: Object3D
     fun traverse(callback: (child: Any) -> Unit)
+    fun removeFromParent()
+    fun remove(obj: Object3D)
+    fun add(obj: Object3D)
 }
 
 external interface Material {

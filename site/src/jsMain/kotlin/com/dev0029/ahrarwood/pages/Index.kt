@@ -4,10 +4,7 @@ import androidx.compose.runtime.Composable
 import com.dev0029.ahrarwood.components.sections.home.HomeBanner
 import com.dev0029.ahrarwood.components.sections.home.HomeFooter
 import com.dev0029.ahrarwood.components.sections.home.HomeHeader
-import com.dev0029.ahrarwood.components.sections.home.HomeShipping
-import com.dev0029.ahrarwood.components.sections.home.HomeShippingMobile
 import com.dev0029.ahrarwood.constants.PageRoutes
-import com.dev0029.ahrarwood.extensions.isMobileCompatible
 import com.varabyte.kobweb.compose.css.StyleVariable
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
@@ -22,8 +19,6 @@ import com.varabyte.kobweb.silk.style.base
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
-import com.dev0029.ahrarwood.components.sections.home.HomeSection
-import com.dev0029.ahrarwood.network.firebase.ChatbaseChatbot
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import kotlinx.browser.document
 import org.jetbrains.compose.web.css.cssRem
@@ -81,12 +76,7 @@ fun HomePage(modifier: Modifier = Modifier) {
                 .margin(top = 102.px),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            HomeBanner(modifier)
-            HomeSection(breakpoint,modifier)
-            if (breakpoint.isMobileCompatible())
-                HomeShippingMobile(modifier)
-            else
-                HomeShipping(modifier)
+            HomeBanner(modifier,ctx,isDarkMode)
             HomeFooter(breakpoint,modifier)
         }
     }

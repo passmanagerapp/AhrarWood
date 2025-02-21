@@ -19,17 +19,21 @@
     <string name="footer_author">Copyright 2025 dev0029</string>
 
     <!-- Section -->
-    <string name="section1_title">Verpackung für besondere Tage</string>
-    <string name="section1_button">Mehr Infos</string>
-    <string name="section1_desc">Für besondere Tage wie Muttertag, Weihnachten oder Valentinstag verpacken wir Ihre Bestellungen sorgfältig.</string>
+    <string name="section1_title">Sie entwerfen, wir produzieren</string>
+    <string name="section1_button">Jetzt starten</string>
+    <string name="section1_desc">Wählen Sie Ihre Farbe, fügen Sie Ihren gravierten Text hinzu, und lassen Sie uns Ihren Buchständer produzieren</string>
 
-    <string name="section2_title">Buchständer fürs Bett</string>
-    <string name="section2_button">Jetzt bestellen</string>
-    <string name="section2_desc">Suchen Sie nach einem Buchhalter, während Sie im Bett Ihr Lieblingsbuch lesen?</string>
+    <string name="section2_title">Verpackung für besondere Tage</string>
+    <string name="section2_button">Mehr Infos</string>
+    <string name="section2_desc">Für besondere Tage wie Muttertag, Weihnachten oder Valentinstag verpacken wir Ihre Bestellungen sorgfältig.</string>
 
-    <string name="section3_title">Erstelle eine Miniaturbibliothek</string>
-    <string name="section3_button">Jetzt erstellen</string>
-    <string name="section3_desc">Was sind deine Lieblingsbücher? Erstelle eine Sammlung deiner Lieblingsbücher und lass uns deine Miniaturbibliothek produzieren!</string>
+    <string name="section3_title">Buchständer fürs Bett</string>
+    <string name="section3_button">Jetzt bestellen</string>
+    <string name="section3_desc">Suchen Sie nach einem Buchhalter, während Sie im Bett Ihr Lieblingsbuch lesen?</string>
+
+    <string name="section4_title">Erstelle eine Miniaturbibliothek</string>
+    <string name="section4_button">Jetzt erstellen</string>
+    <string name="section4_desc">Was sind deine Lieblingsbücher? Erstelle eine Sammlung deiner Lieblingsbücher und lass uns deine Miniaturbibliothek produzieren!</string>
 
     <!-- Shipping -->
     <string name="shipping_title">Versand</string>
@@ -84,6 +88,7 @@
     <string name="enter_personalization">Personalisierung eingeben</string>
     <string name="color_option">*Farboption wird bald verfügbar sein..</string>
     <string name="triangle_stand">Dreieckiger Buchständer</string>
+    <string name="show_book">Buch anzeigen</string>
 
     <!-- Tour guide -->
     <string name="choose_color">Farbe wählen</string>

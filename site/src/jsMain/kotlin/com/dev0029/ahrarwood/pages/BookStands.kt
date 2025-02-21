@@ -1,6 +1,7 @@
 package com.dev0029.ahrarwood.pages
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -25,6 +26,7 @@ import com.dev0029.ahrarwood.utils.threedmodel.FontLoader
 import com.dev0029.ahrarwood.utils.threedmodel.Mesh
 import com.dev0029.ahrarwood.utils.threedmodel.MeshPhysicalMaterial
 import com.dev0029.ahrarwood.utils.threedmodel.MeshStandardMaterial
+import com.dev0029.ahrarwood.utils.threedmodel.Object3D
 import com.dev0029.ahrarwood.utils.threedmodel.Scene
 import com.dev0029.ahrarwood.utils.threedmodel.TextGeometry
 import com.dev0029.ahrarwood.utils.threedmodel.TextGeometryParameters
@@ -62,6 +64,7 @@ import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.silk.components.forms.Button
+import com.varabyte.kobweb.silk.components.forms.Checkbox
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
@@ -76,6 +79,7 @@ import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.css.rgb
 import org.jetbrains.compose.web.dom.Div
+import org.jetbrains.compose.web.dom.Text
 import org.w3c.dom.HTMLElement
 import kotlin.random.Random
 
@@ -93,6 +97,17 @@ fun BookStands(
     var isSearchExpanded = remember { mutableStateOf(true) }
     val scope = rememberCoroutineScope()
     var showTour = remember { mutableStateOf(false) }
+    var isShowBook = remember { mutableStateOf(true) }
+    var removedBookObj = remember { mutableStateOf<Object3D?>(null) }
+    var removedBookParent = remember { mutableStateOf<Object3D?>(null) }
+
+    DisposableEffect(Unit) {
+        onDispose {
+            scene.value = null
+            removedBookObj.value = null
+            removedBookParent.value = null
+        }
+    }
 
     LaunchedEffect(Unit) {
         delay(250)
@@ -267,14 +282,14 @@ fun BookStands(
                             if (texture.value == null) {
                                 texture.value = material.map
                             }
-                            material.map = null
+                            material.map = texture.value
                             material.color.set(0x0a0c09)
                             material.needsUpdate = true
                         }
                     )
                     BoxColor(
                         modifier = modifier,
-                        paint = WoodPaint(Res.string.honey,Color("#c9ad71")),
+                        paint = WoodPaint(Res.string.honey,Color("#c08951")),
                         breakpoint = breakpoint,
                         index = 3,
                         selectedIndex = currentIndex.value,
@@ -286,8 +301,8 @@ fun BookStands(
                             if (texture.value == null) {
                                 texture.value = material.map
                             }
-                            material.map = null
-                            material.color.set(0xc9ad71)
+                            material.map = texture.value
+                            material.color.set(0xc08951)
                             material.needsUpdate = true
                         }
                     )
@@ -304,7 +319,7 @@ fun BookStands(
                     )
                     BoxColor(
                         modifier = modifier,
-                        paint = WoodPaint(Res.string.wenge,Color("#624835")),
+                        paint = WoodPaint(Res.string.wenge,Color("#825b4d")),
                         breakpoint = breakpoint,
                         index = 4,
                         selectedIndex = currentIndex.value,
@@ -316,14 +331,14 @@ fun BookStands(
                             if (texture.value == null) {
                                 texture.value = material.map
                             }
-                            material.map = null
-                            material.color.set(0x624835)
+                            material.map = texture.value
+                            material.color.set(0x825b4d)
                             material.needsUpdate = true
                         }
                     )
                     BoxColor(
                         modifier = modifier,
-                        paint = WoodPaint(Res.string.oak,Color("#947c53")),
+                        paint = WoodPaint(Res.string.oak,Color("#aa7c4f")),
                         breakpoint = breakpoint,
                         index = 5,
                         selectedIndex = currentIndex.value,
@@ -335,14 +350,14 @@ fun BookStands(
                             if (texture.value == null) {
                                 texture.value = material.map
                             }
-                            material.map = null
-                            material.color.set(0x947c53)
+                            material.map = texture.value
+                            material.color.set(0xaa7c4f)
                             material.needsUpdate = true
                         }
                     )
                     BoxColor(
                         modifier = modifier,
-                        paint = WoodPaint(Res.string.light_oak,Color("#c8a573")),
+                        paint = WoodPaint(Res.string.light_oak,Color("#c08155")),
                         breakpoint = breakpoint,
                         index = 6,
                         selectedIndex = currentIndex.value,
@@ -354,14 +369,14 @@ fun BookStands(
                             if (texture.value == null) {
                                 texture.value = material.map
                             }
-                            material.map = null
-                            material.color.set(0xc8a573)
+                            material.map = texture.value
+                            material.color.set(0xc08155)
                             material.needsUpdate = true
                         }
                     )
                     BoxColor(
                         modifier = modifier,
-                        paint = WoodPaint(Res.string.natural_walnut,Color("#47290F")),
+                        paint = WoodPaint(Res.string.natural_walnut,Color("#614e40")),
                         breakpoint = breakpoint,
                         index = 7,
                         selectedIndex = currentIndex.value,
@@ -378,11 +393,26 @@ fun BookStands(
                             if (texture.value == null) {
                                 texture.value = material.map
                             }
-                            material.map = null
-                            material.color.set(0x47290F)
+                            material.map = texture.value
+                            material.color.set(0x614e40)
                             material.needsUpdate = true
                         }
                     )
+                }
+                Checkbox(
+                    modifier = modifier.margin(top = 6.px),
+                    checked = isShowBook.value, onCheckedChange = {
+                    isShowBook.value = it
+                    if (!it) {
+                        val obj = scene.value?.getObjectByName("book")
+                        removedBookObj.value = obj
+                        removedBookParent.value = obj?.parent
+                        obj?.removeFromParent()
+                    } else {
+                        removedBookObj.value?.let { removedBookParent.value?.add(it) }
+                    }
+                }) {
+                    Text(Res.string.show_book)
                 }
             }
 
@@ -454,7 +484,7 @@ fun BookStands(
                 enabled =  true
             ) {
                 SpanText(
-                    text = Res.string.section2_button,
+                    text = Res.string.section3_button,
                     modifier = Modifier
                         .color(Colors.SaddleBrown)
                         .fontSize(if (!breakpoint.isMobileCompatible()) 18.px else 12.px)

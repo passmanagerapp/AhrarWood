@@ -19,17 +19,21 @@
     <string name="footer_author">Copyright 2025 dev0029</string>
 
     <!-- Section -->
-    <string name="section1_title">Özel günlere özel paketleme</string>
-    <string name="section1_button">Daha fazla bilgi</string>
-    <string name="section1_desc">Anneler günü, yılbaşı, sevgiler gibi özel günlerde farklı paketleme yapıyoruz.</string>
+    <string name="section1_title">Sen tasarla, biz üretelim</string>
+    <string name="section1_button">Şimdi başla</string>
+    <string name="section1_desc">Rengini seç, metnini ekle, kitap standını oluşturalım</string>
 
-    <string name="section2_title">Yatakyanı kitap standları</string>
-    <string name="section2_button">Sipariş ver</string>
-    <string name="section2_desc">En beğendiğin kitabı okurken kitabı koyacağın bir kitap standı mı arıyorsun? </string>
+    <string name="section2_title">Özel günlere özel paketleme</string>
+    <string name="section2_button">Daha fazla bilgi</string>
+    <string name="section2_desc">Anneler günü, yılbaşı, sevgiler gibi özel günlerde farklı paketleme yapıyoruz.</string>
 
-    <string name="section3_title">Kitaplığını kendin oluştur</string>
-    <string name="section3_button">Şimdi başla</string>
-    <string name="section3_desc">Favori kitap listeni oluştur, bizde sana minyatür kitaplığını oluşturalım</string>
+    <string name="section3_title">Yatakyanı kitap standları</string>
+    <string name="section3_button">Sipariş ver</string>
+    <string name="section3_desc">En beğendiğin kitabı okurken kitabı koyacağın bir kitap standı mı arıyorsun? </string>
+
+    <string name="section4_title">Kitaplığını kendin oluştur</string>
+    <string name="section4_button">Şimdi başla</string>
+    <string name="section4_desc">Favori kitap listeni oluştur, bizde sana minyatür kitaplığını oluşturalım</string>
 
     <!-- Shipping -->
     <string name="shipping_title">Kargo</string>
@@ -84,6 +88,7 @@
     <string name="enter_personalization">İsim girin</string>
     <string name="color_option">*Renk seçeneği yakında sizlerle..</string>
     <string name="triangle_stand">Üçgen kitap standı</string>
+    <string name="show_book">Kitabı göster</string>
 
     <!-- Tour guide -->
     <string name="choose_color">Renk seçin</string>

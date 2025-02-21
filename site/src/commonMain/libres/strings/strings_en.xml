@@ -19,17 +19,21 @@
     <string name="footer_author">Copyright 2025 dev0029</string>
 
     <!-- Section -->
-    <string name="section1_title">Special days packaging</string>
-    <string name="section1_button">More info</string>
-    <string name="section1_desc">For special days; such as Mother's Day, Christmas, Valentine's Day we carefully package your orders.</string>
+    <string name="section1_title">You design, we produce</string>
+    <string name="section1_button">Start now</string>
+    <string name="section1_desc">Select your color, add your engraved text, let us to produce your book stand</string>
 
-    <string name="section2_title">Bedside book stands</string>
-    <string name="section2_button">Order now</string>
-    <string name="section2_desc">Are you looking for a book holder while you are reading your favorite book at bed? </string>
+    <string name="section2_title">Special days packaging</string>
+    <string name="section2_button">More info</string>
+    <string name="section2_desc">For special days; such as Mother's Day, Christmas, Valentine's Day we carefully package your orders.</string>
 
-    <string name="section3_title">Create miniature library</string>
-    <string name="section3_button">Create now</string>
-    <string name="section3_desc">What is your favorite books, create a collection of your favorite book list and let use to produce your miniature library!</string>
+    <string name="section3_title">Bedside book stands</string>
+    <string name="section3_button">Order now</string>
+    <string name="section3_desc">Are you looking for a book holder while you are reading your favorite book at bed? </string>
+
+    <string name="section4_title">Create miniature library</string>
+    <string name="section4_button">Create now</string>
+    <string name="section4_desc">What is your favorite books, create a collection of your favorite book list and let use to produce your miniature library!</string>
 
     <!-- Shipping -->
     <string name="shipping_title">Shipping</string>
@@ -84,6 +88,7 @@
     <string name="enter_personalization">Enter personalization</string>
     <string name="color_option">*Color option will be available soon..</string>
     <string name="triangle_stand">Triangle book stand</string>
+    <string name="show_book">Show book</string>
 
     <!-- Tour guide -->
     <string name="choose_color">Choose color</string>

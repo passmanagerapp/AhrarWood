@@ -5,5 +5,5 @@ data class Section(
     val description: String,
     val buttonTitle: String,
     val navPath: String?,
-    val imagePath: String
+    val imagePath: String?
 )

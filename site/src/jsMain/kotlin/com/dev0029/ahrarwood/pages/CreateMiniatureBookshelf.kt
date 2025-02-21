@@ -19,6 +19,7 @@ import com.dev0029.ahrarwood.constants.PageRoutes
 import com.dev0029.ahrarwood.extensions.getRandomHexColor
 import com.dev0029.ahrarwood.extensions.ignoreNull
 import com.dev0029.ahrarwood.extensions.isMobileCompatible
+import com.dev0029.ahrarwood.extensions.maunColor
 import com.dev0029.ahrarwood.extensions.primaryColor
 import com.dev0029.ahrarwood.extensions.secondaryColor
 import com.dev0029.ahrarwood.models.BookDialogModel
@@ -268,7 +269,7 @@ fun CreateMiniatureBookshelfPage(
                     ) {
                         DoubleBoxColor(
                             modifier = modifier,
-                            paint = WoodPaint(Res.string.oak_white,Color("#947c53"),Color("#d7d6c8")),
+                            paint = WoodPaint(Res.string.oak_white,Color("#aa7c4f"),Color("#d7d6c8")),
                             breakpoint = breakpoint,
                             index = 0,
                             selectedIndex = colorIndex.value,
@@ -294,7 +295,7 @@ fun CreateMiniatureBookshelfPage(
                         )
                         DoubleBoxColor(
                             modifier = modifier,
-                            paint = WoodPaint(Res.string.honey_walnut,Color("#c9ad71"),Color("#47290F")),
+                            paint = WoodPaint(Res.string.honey_walnut,Color("#c08951"),Color("#614e40")),
                             breakpoint = breakpoint,
                             index = 1,
                             selectedIndex = colorIndex.value,
@@ -309,19 +310,19 @@ fun CreateMiniatureBookshelfPage(
                                     textureExterior.value = materialExterior.map
                                     textureInterior.value = materialInterior.map
                                 }
-                                materialInterior.map = null
-                                materialInterior.color.set(0xc9ad71)
+                                materialInterior.map = textureInterior.value
+                                materialInterior.color.set(0xc08951)
                                 materialInterior.needsUpdate = true
 
-                                materialExterior.map = null
-                                materialExterior.color.set(0x47290F)
+                                materialExterior.map = textureExterior.value
+                                materialExterior.color.set(0x614e40)
                                 materialExterior.needsUpdate = true
                             }
                         )
                         //c16f5f
                         DoubleBoxColor(
                             modifier = modifier,
-                            paint = WoodPaint(Res.string.maun_beech,Color("#c16f5f"),Color("#c8ab7b")),
+                            paint = WoodPaint(Res.string.maun_beech,Color("#8d372d"),Color("#c8ab7b")),
                             breakpoint = breakpoint,
                             index = 2,
                             selectedIndex = colorIndex.value,
@@ -336,12 +337,12 @@ fun CreateMiniatureBookshelfPage(
                                     textureExterior.value = materialExterior.map
                                     textureInterior.value = materialInterior.map
                                 }
-                                materialInterior.map = null
-                                materialInterior.color.set(0xc16f5f)
+                                materialInterior.map = textureInterior.value
+                                materialInterior.color.set(maunColor)
                                 materialInterior.needsUpdate = true
 
-                                materialExterior.map = null
-                                materialExterior.color.set(0xc8ab7b)
+                                materialExterior.map = textureExterior.value
+                                materialExterior.color.set(0xb65c53)
                                 materialExterior.needsUpdate = true
                             }
                         )
@@ -373,7 +374,7 @@ fun CreateMiniatureBookshelfPage(
                         )
                         DoubleBoxColor(
                             modifier = modifier,
-                            paint = WoodPaint(Res.string.walnut_walnut,Color("#a67147"),Color("#47290F")),
+                            paint = WoodPaint(Res.string.walnut_walnut,Color("#c17d50"),Color("#614e40")),
                             breakpoint = breakpoint,
                             index = 4,
                             selectedIndex = colorIndex.value,
@@ -388,12 +389,12 @@ fun CreateMiniatureBookshelfPage(
                                     textureExterior.value = materialExterior.map
                                     textureInterior.value = materialInterior.map
                                 }
-                                materialInterior.map = null
-                                materialInterior.color.set(0xa67147)
+                                materialInterior.map = textureInterior.value
+                                materialInterior.color.set(0xc17d50)
                                 materialInterior.needsUpdate = true
 
-                                materialExterior.map = null
-                                materialExterior.color.set(0x47290F)
+                                materialExterior.map = textureExterior.value
+                                materialExterior.color.set(0x614e40)
                                 materialExterior.needsUpdate = true
                             }
                         )
@@ -488,7 +489,7 @@ fun CreateMiniatureBookshelfPage(
                 enabled =  if (currentIndex.value == 0) selectedBooks.value.size == 60 else true
             ) {
                 SpanText(
-                    text = Res.string.section2_button,
+                    text = Res.string.section3_button,
                     modifier = Modifier
                         .color(Colors.SaddleBrown)
                         .fontSize(if (!breakpoint.isMobileCompatible()) 18.px else 12.px)
