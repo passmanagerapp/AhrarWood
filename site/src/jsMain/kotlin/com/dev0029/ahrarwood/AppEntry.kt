@@ -75,7 +75,7 @@ private fun initFirebase() {
 }
 
 private fun initLocalization() {
-    val locales = listOf("en", "tr","de")
+    val locales = listOf("en", "tr","de","es")
     LibresSettings.languageCode =
         localStorage.getItem("locale")
             ?: locales.find { it == window.navigator.language.substringBefore("-") }

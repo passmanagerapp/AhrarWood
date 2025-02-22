@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Title -->
+    <string name="title_home">AhrarWood | Atriles de libros hechos a mano, Regalo para lectores, Regalo para amantes de los libros</string>
+    <string name="title_book_stands">Modelos de atriles de libros hechos a mano | AhrarWood</string>
+    <string name="title_bookshelf">Crea una lista de libros para una mini biblioteca | AhrarWood</string>
+    <string name="title_bookshelf_order">Ordena una mini biblioteca en Etsy | AhrarWood</string>
+    <string name="title_contact">Contáctanos | AhrarWood</string>
+
+    <!-- Header -->
+    <string name="home">Inicio</string>
+    <string name="about">Acerca de</string>
+    <string name="contact">Contacto</string>
+    <string name="book_stands">Atriles</string>
+    <string name="search">Buscar</string>
+    <string name="create_library">Biblioteca</string>
+
+    <!-- Footer -->
+    <string name="footer_author">Copyright 2025 dev0029</string>
+
+    <!-- Section -->
+    <string name="section1_title">Tú diseñas, nosotros producimos</string>
+    <string name="section1_button">Comenzar ahora</string>
+    <string name="section1_desc">Elige tu color, añade tu texto grabado y deja que produzcamos tu atril</string>
+
+    <string name="section2_title">Empaque para días especiales</string>
+    <string name="section2_button">Más información</string>
+    <string name="section2_desc">Para días especiales como el Día de la Madre, Navidad y San Valentín, preparamos cuidadosamente tus pedidos.</string>
+
+    <string name="section3_title">Atriles de libros para la mesita de noche</string>
+    <string name="section3_button">Ordenar ahora</string>
+    <string name="section3_desc">¿Buscas un soporte para libros mientras lees en la cama?</string>
+
+    <string name="section4_title">Crea una biblioteca en miniatura</string>
+    <string name="section4_button">Crear ahora</string>
+    <string name="section4_desc">¿Cuáles son tus libros favoritos? Crea una colección con tu lista de libros preferidos y deja que produzcamos tu biblioteca en miniatura.</string>
+
+    <!-- Shipping -->
+    <string name="shipping_title">Envío</string>
+    <string name="shipping_desc1">Envío rápido y gratuito</string>
+    <string name="shipping_description">Con nuestro servicio de entrega exprés, tus artículos llegarán a tu puerta en un plazo de 2 a 4 días hábiles. Realizamos envíos a los siguientes estados de EE. UU.: Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware, Florida, Georgia, Hawái, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Luisiana, Maine, Maryland, Massachusetts, Míchigan, Minnesota, Misisipi, Misuri, Montana, Nebraska, Nevada, Nuevo Hampshire, Nueva Jersey, Nuevo México, Nueva York, Carolina del Norte, Dakota del Norte, Ohio, Oklahoma, Oregón, Pensilvania, Rhode Island, Carolina del Sur, Dakota del Sur, Tennessee, Texas, Utah, Vermont, Virginia, Washington, Virginia Occidental, Wisconsin y Wyoming.</string>
+    <string name="shipping_description2">Además, enviamos a Canadá, Reino Unido y todos los países de la UE, garantizando una experiencia de compra fluida para todos nuestros clientes en Norteamérica.</string>
+
+    <!-- Contact -->
+    <string name="contact_title">Contáctanos</string>
+    <string name="contact_desc">Escríbenos para cualquier pregunta o colaboración</string>
+    <string name="contact_email_name">Tu nombre</string>
+    <string name="contact_email_subject">Asunto</string>
+    <string name="contact_email_message">Mensaje</string>
+    <string name="contact_email_send_message">Enviar mensaje</string>
+
+    <!-- Create library -->
+    <string name="library_header_title">Crea tu biblioteca</string>
+    <string name="library_header_title2">Tu lista de libros ha sido creada, ¡ahora es momento de ordenar!</string>
+    <string name="library_header_desc">*El orden de los libros no es importante</string>
+    <string name="library_header_desc2">Haz clic en el botón de pedido y pega tu código único en la sección "Personalización" en Etsy.</string>
+    <string name="copy_your_id">Copia tu ID de lista de libros única:</string>
+    <string name="download_book_list">Descargar lista de libros</string>
+    <string name="ok">Ok</string>
+    <string name="remove">Eliminar</string>
+    <string name="search_author">Buscar autor</string>
+    <string name="result_found">resultado encontrado</string>
+    <string name="loading">Cargando:</string>
+    <string name="not_load">Modelo no cargado</string>
+    <string name="pine">Pino</string>
+    <string name="beech_pine">Haya-Pino</string>
+    <string name="interior_exterior">•Color interior/exterior:</string>
+    <string name="oak_white">Roble/Blanco</string>
+    <string name="honey_walnut">Miel/Nogal oscuro</string>
+    <string name="maun_beech">Caoba/Haya</string>
+    <string name="white_white">Blanco/Blanco</string>
+    <string name="walnut_walnut">Nogal/Nogal oscuro</string>
+
+    <!-- Book stands -->
+    <string name="book_stands_header_title">Atriles de libros más vendidos</string>
+    <string name="book_stands_header_desc">Atriles</string>
+    <string name="color">•Color:</string>
+    <string name="material">•Material:</string>
+    <string name="beech">Haya</string>
+    <string name="natural">Natural</string>
+    <string name="white">Blanco</string>
+    <string name="matte_black">Negro mate</string>
+    <string name="honey">Miel</string>
+    <string name="wenge">Wengué</string>
+    <string name="oak">Roble</string>
+    <string name="light_oak">Roble claro</string>
+    <string name="natural_walnut">Nogal natural</string>
+    <string name="enter_personalization">Ingresa la personalización</string>
+    <string name="color_option">*La opción de color estará disponible pronto...</string>
+    <string name="triangle_stand">Atril triangular</string>
+    <string name="show_book">Mostrar libro</string>
+
+    <!-- Tour guide -->
+    <string name="choose_color">Elige el color</string>
+    <string name="choose_color_desc">Comienza seleccionando tu color de madera preferido de estas opciones.</string>
+    <string name="add_personalization">Añadir personalización</string>
+    <string name="add_personalization_desc">Añade tu texto personalizado para ser grabado en la madera.</string>
+    <string name="place_order">Realizar pedido</string>
+    <string name="place_order_desc">Cuando termines, haz clic aquí para completar tu pedido en Etsy.</string>
+</resources>
